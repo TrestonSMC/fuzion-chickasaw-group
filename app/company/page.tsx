@@ -2,7 +2,10 @@
 
 import Link from "next/link";
 
-const LOGO_BLUE = "#2a8bff";
+const PRIMARY = "#4B1E6D";
+const ACCENT = "#C9A24D";
+const DARK = "#1A1A1A";
+const BG = "#F6F3EC";
 const NAV_HEIGHT = 112;
 
 type TeamMember = {
@@ -27,7 +30,7 @@ export default function AboutPage() {
       label: "FOUNDERS",
       title: "Fuzion Founders",
       description:
-        "The founding leadership behind Fuzion Consulting Group’s vision, strategy, and client-centered growth.",
+        "The founding leadership behind Fuzion Chickasaw Group’s vision, strategy, and client-centered growth.",
       members: [
         {
           name: "Dan Goretskie",
@@ -147,47 +150,63 @@ export default function AboutPage() {
 
   return (
     <main
-      className="min-h-screen bg-white"
-      style={{ paddingTop: `${NAV_HEIGHT}px` }}
+      className="min-h-screen"
+      style={{
+        paddingTop: `${NAV_HEIGHT}px`,
+        background: BG,
+        color: DARK,
+      }}
     >
       <section className="relative overflow-hidden">
         <div className="relative h-[420px] w-full">
           <img
             src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=2400&q=80"
-            alt="Fuzion Consulting Group"
+            alt="Fuzion Chickasaw Group"
             className="h-full w-full object-cover"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/35 via-black/10 to-transparent" />
+          <div
+            className="absolute inset-0"
+            style={{
+              background:
+                "linear-gradient(to top, rgba(26,26,26,0.55), rgba(26,26,26,0.12), transparent)",
+            }}
+          />
         </div>
 
         <div className="mx-auto max-w-7xl px-6 py-14">
-          <p className="text-xs font-semibold tracking-[0.25em] text-black/60">
-            FUZION CONSULTING GROUP
+          <p
+            className="text-xs font-semibold tracking-[0.25em]"
+            style={{ color: PRIMARY }}
+          >
+            FUZION CHICKASAW GROUP
           </p>
 
-          <h1 className="mt-3 text-4xl font-semibold tracking-tight text-black/90 md:text-5xl">
+          <h1 className="mt-3 text-4xl font-semibold tracking-tight md:text-5xl">
             Modern Business needs Modern Technology
           </h1>
 
           <p className="mt-6 max-w-3xl text-base leading-relaxed text-black/70 md:text-lg">
-            Fuzion Consulting Group LLC is a business and technology consulting
-            firm headquartered in Olathe, Kansas, with offices in Arizona,
-            California, Oklahoma, and Texas. Since our founding in 2019, we’ve
-            delivered sustainable, client-centered solutions across regulated
-            industries—empowering organizations to streamline operations, enhance
-            compliance, and drive innovation.
+            Fuzion Chickasaw Group is a mission-driven consulting and technology
+            firm delivering practical solutions for complex business,
+            operational, and regulated environments.
           </p>
 
           <div className="mt-8 flex flex-wrap gap-3">
             <Link
               href="/contact"
-              className="rounded-full bg-black px-6 py-3 text-sm font-medium text-white hover:bg-black/90"
+              className="rounded-full px-6 py-3 text-sm font-medium text-white transition hover:opacity-90"
+              style={{ background: PRIMARY }}
             >
               Contact Us
             </Link>
+
             <Link
               href="/services"
-              className="rounded-full border border-black/20 bg-white px-6 py-3 text-sm font-medium text-black/90 hover:bg-black/5"
+              className="rounded-full border bg-white px-6 py-3 text-sm font-medium transition hover:bg-black/5"
+              style={{
+                borderColor: "rgba(201,162,77,0.65)",
+                color: DARK,
+              }}
             >
               View Services →
             </Link>
@@ -195,17 +214,20 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <div className="h-[3px] w-full" style={{ background: LOGO_BLUE }} />
+      <div className="h-[3px] w-full" style={{ background: ACCENT }} />
 
-      <section className="bg-white">
+      <section style={{ background: BG }}>
         <div className="mx-auto max-w-7xl px-6 py-16">
           <div className="grid gap-12 lg:grid-cols-12">
             <div className="lg:col-span-6">
-              <p className="text-xs font-semibold tracking-[0.25em] text-black/60">
+              <p
+                className="text-xs font-semibold tracking-[0.25em]"
+                style={{ color: PRIMARY }}
+              >
                 WHO WE ARE
               </p>
 
-              <h2 className="mt-3 text-3xl font-semibold tracking-tight text-black/90 md:text-4xl">
+              <h2 className="mt-3 text-3xl font-semibold tracking-tight md:text-4xl">
                 Sustainable solutions. Client-centered delivery.
               </h2>
 
@@ -227,13 +249,19 @@ export default function AboutPage() {
               <div className="mt-8 flex flex-wrap gap-3">
                 <Link
                   href="/services"
-                  className="rounded-full bg-black px-6 py-3 text-sm font-medium text-white hover:bg-black/90"
+                  className="rounded-full px-6 py-3 text-sm font-medium text-white transition hover:opacity-90"
+                  style={{ background: PRIMARY }}
                 >
                   Explore Services
                 </Link>
+
                 <Link
                   href="/contact"
-                  className="rounded-full border border-black/20 bg-white px-6 py-3 text-sm font-medium text-black/90 hover:bg-black/5"
+                  className="rounded-full border bg-white px-6 py-3 text-sm font-medium transition hover:bg-black/5"
+                  style={{
+                    borderColor: "rgba(201,162,77,0.65)",
+                    color: DARK,
+                  }}
                 >
                   Talk to a Consultant →
                 </Link>
@@ -243,7 +271,7 @@ export default function AboutPage() {
             <div className="lg:col-span-6">
               <div
                 className="overflow-hidden rounded-3xl border-2 bg-white shadow-[0_10px_30px_rgba(0,0,0,0.08)]"
-                style={{ borderColor: LOGO_BLUE }}
+                style={{ borderColor: ACCENT }}
               >
                 <div className="relative aspect-video w-full bg-black">
                   <video
@@ -255,9 +283,13 @@ export default function AboutPage() {
                 </div>
 
                 <div className="p-6">
-                  <p className="text-sm font-semibold text-black/85">
+                  <p
+                    className="text-sm font-semibold"
+                    style={{ color: PRIMARY }}
+                  >
                     How we operate
                   </p>
+
                   <p className="mt-2 text-sm leading-relaxed text-black/60">
                     Client-focused consulting across regulated industries —
                     built to streamline operations, strengthen compliance, and
@@ -271,12 +303,17 @@ export default function AboutPage() {
           <div className="mt-20">
             <div className="flex items-end justify-between gap-6">
               <div>
-                <p className="text-xs font-semibold tracking-[0.25em] text-black/60">
+                <p
+                  className="text-xs font-semibold tracking-[0.25em]"
+                  style={{ color: PRIMARY }}
+                >
                   MEET THE TEAM
                 </p>
-                <h3 className="mt-3 text-3xl font-semibold text-black/90 md:text-4xl">
+
+                <h3 className="mt-3 text-3xl font-semibold md:text-4xl">
                   Leadership, advisory, and support structured for delivery.
                 </h3>
+
                 <p className="mt-3 max-w-3xl text-sm leading-relaxed text-black/60 md:text-base">
                   Our team is organized across leadership, delivery, support,
                   and advisory functions to provide focused expertise where it
@@ -286,27 +323,36 @@ export default function AboutPage() {
 
               <Link
                 href="/contact"
-                className="hidden rounded-full border border-black/20 bg-white px-6 py-3 text-sm font-medium text-black/90 hover:bg-black/5 md:inline-flex"
+                className="hidden rounded-full border bg-white px-6 py-3 text-sm font-medium transition hover:bg-black/5 md:inline-flex"
+                style={{
+                  borderColor: "rgba(201,162,77,0.65)",
+                  color: DARK,
+                }}
               >
                 Work with us →
               </Link>
             </div>
 
             <div className="mt-12 space-y-10">
-
               {teamGroups.map((group) => (
                 <section
                   key={group.title}
-                  className="rounded-[28px] border border-black/10 bg-white p-6 shadow-[0_14px_40px_rgba(0,0,0,0.05)] md:p-8"
+                  className="rounded-[28px] border bg-white p-6 shadow-[0_14px_40px_rgba(0,0,0,0.05)] md:p-8"
+                  style={{ borderColor: "rgba(201,162,77,0.45)" }}
                 >
                   <div className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
                     <div>
-                      <p className="text-xs font-semibold tracking-[0.22em] text-black/50">
+                      <p
+                        className="text-xs font-semibold tracking-[0.22em]"
+                        style={{ color: PRIMARY }}
+                      >
                         {group.label}
                       </p>
-                      <h4 className="mt-2 text-2xl font-semibold tracking-tight text-black/90">
+
+                      <h4 className="mt-2 text-2xl font-semibold tracking-tight">
                         {group.title}
                       </h4>
+
                       <p className="mt-3 max-w-3xl text-sm leading-relaxed text-black/60 md:text-base">
                         {group.description}
                       </p>
@@ -314,7 +360,7 @@ export default function AboutPage() {
 
                     <div
                       className="h-[3px] w-16 rounded-full"
-                      style={{ background: LOGO_BLUE }}
+                      style={{ background: ACCENT }}
                     />
                   </div>
 
@@ -322,9 +368,16 @@ export default function AboutPage() {
                     {group.members.map((member) => (
                       <div
                         key={`${group.title}-${member.name}`}
-                        className="rounded-[24px] border border-black/10 bg-gray-50 p-6 text-center transition hover:border-black/15 hover:bg-white"
+                        className="rounded-[24px] border p-6 text-center transition hover:bg-white"
+                        style={{
+                          borderColor: "rgba(201,162,77,0.35)",
+                          background: "rgba(246,243,236,0.6)",
+                        }}
                       >
-                        <div className="mx-auto h-36 w-36 overflow-hidden rounded-full border border-black/10 bg-white shadow-sm">
+                        <div
+                          className="mx-auto h-36 w-36 overflow-hidden rounded-full border bg-white shadow-sm"
+                          style={{ borderColor: "rgba(201,162,77,0.55)" }}
+                        >
                           {member.img ? (
                             <img
                               src={member.img}
@@ -346,10 +399,13 @@ export default function AboutPage() {
 
                         <div
                           className="mx-auto mt-5 h-[3px] w-12 rounded-full"
-                          style={{ background: LOGO_BLUE }}
+                          style={{ background: ACCENT }}
                         />
 
-                        <p className="mt-5 text-lg font-semibold text-black/90">
+                        <p
+                          className="mt-5 text-lg font-semibold"
+                          style={{ color: PRIMARY }}
+                        >
                           {member.name}
                         </p>
 
@@ -360,7 +416,8 @@ export default function AboutPage() {
                         <div className="mt-5">
                           <Link
                             href={member.href}
-                            className="inline-flex items-center gap-2 text-sm font-medium text-black/80 hover:text-black"
+                            className="inline-flex items-center gap-2 text-sm font-medium hover:opacity-80"
+                            style={{ color: PRIMARY }}
                           >
                             Learn more <span aria-hidden="true">→</span>
                           </Link>
@@ -375,7 +432,8 @@ export default function AboutPage() {
             <div className="mt-10 md:hidden">
               <Link
                 href="/contact"
-                className="inline-flex w-full items-center justify-center rounded-2xl bg-black px-6 py-3 text-sm font-semibold text-white hover:bg-black/90"
+                className="inline-flex w-full items-center justify-center rounded-2xl px-6 py-3 text-sm font-semibold text-white transition hover:opacity-90"
+                style={{ background: PRIMARY }}
               >
                 Work with us →
               </Link>
@@ -384,12 +442,22 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <section className="border-t border-black/10 bg-gray-50">
+      <section
+        className="border-t"
+        style={{
+          borderColor: "rgba(201,162,77,0.35)",
+          background: "rgba(255,255,255,0.72)",
+        }}
+      >
         <div className="mx-auto max-w-7xl px-6 py-16">
-          <p className="text-xs font-semibold tracking-[0.25em] text-black/60">
+          <p
+            className="text-xs font-semibold tracking-[0.25em]"
+            style={{ color: PRIMARY }}
+          >
             WHAT WE DO
           </p>
-          <h3 className="mt-3 text-3xl font-semibold text-black/90">
+
+          <h3 className="mt-3 text-3xl font-semibold">
             Consulting built for regulated environments.
           </h3>
 
@@ -406,12 +474,14 @@ export default function AboutPage() {
             ].map((item) => (
               <div
                 key={item}
-                className="rounded-2xl border border-black/10 bg-white p-6"
+                className="rounded-2xl border bg-white p-6"
+                style={{ borderColor: "rgba(201,162,77,0.45)" }}
               >
                 <div
                   className="mb-4 h-[3px] w-12 rounded-full"
-                  style={{ background: LOGO_BLUE }}
+                  style={{ background: ACCENT }}
                 />
+
                 <p className="text-sm leading-relaxed text-black/75">{item}</p>
               </div>
             ))}
@@ -421,7 +491,7 @@ export default function AboutPage() {
 
       <section
         className="relative overflow-hidden"
-        style={{ background: LOGO_BLUE }}
+        style={{ background: PRIMARY }}
       >
         <div className="pointer-events-none absolute inset-0 opacity-30 [background:radial-gradient(900px_420px_at_30%_15%,rgba(255,255,255,0.22),transparent_60%)]" />
         <div className="pointer-events-none absolute inset-0 opacity-20 [background:radial-gradient(700px_380px_at_80%_40%,rgba(0,0,0,0.20),transparent_60%)]" />
@@ -432,6 +502,7 @@ export default function AboutPage() {
               <h3 className="text-3xl font-semibold tracking-tight text-white md:text-4xl">
                 Would love to help.
               </h3>
+
               <p className="mt-4 max-w-2xl text-sm leading-relaxed text-white/90 md:text-base">
                 Whether you’re modernizing infrastructure, strengthening
                 compliance, or implementing new systems — Fuzion brings clarity,
@@ -442,10 +513,15 @@ export default function AboutPage() {
             <div className="flex flex-wrap gap-3">
               <Link
                 href="/contact"
-                className="rounded-full bg-white px-7 py-3 text-sm font-semibold text-black/90 hover:bg-white/90"
+                className="rounded-full px-7 py-3 text-sm font-semibold transition hover:opacity-90"
+                style={{
+                  background: ACCENT,
+                  color: DARK,
+                }}
               >
                 Contact Us →
               </Link>
+
               <Link
                 href="/services"
                 className="rounded-full border border-white/30 bg-white/10 px-7 py-3 text-sm font-semibold text-white backdrop-blur hover:bg-white/15"

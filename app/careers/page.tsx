@@ -2,7 +2,10 @@
 
 import Link from "next/link";
 
-const LOGO_BLUE = "#2a8bff";
+const PRIMARY = "#4B1E6D";
+const ACCENT = "#C9A24D";
+const DARK = "#1A1A1A";
+const BG = "#F6F3EC";
 
 const roleCards = [
   {
@@ -97,27 +100,32 @@ const industries = [
 
 export default function CareersPage() {
   return (
-    <main className="min-h-screen bg-white pt-28 md:pt-32">
-      {/* ===================== PAGE INTRO ===================== */}
-      <section className="bg-white">
+    <main
+      className="min-h-screen pt-28 md:pt-32"
+      style={{ background: BG, color: DARK }}
+    >
+      <section style={{ background: BG }}>
         <div className="mx-auto max-w-7xl px-6 py-16 md:py-20">
           <div className="grid gap-10 lg:grid-cols-12 lg:items-start">
             <div className="lg:col-span-7">
-              <p className="text-xs font-semibold tracking-[0.25em] text-black/60">
+              <p
+                className="text-xs font-semibold tracking-[0.25em]"
+                style={{ color: PRIMARY }}
+              >
                 CAREERS AT FUZION
               </p>
 
-              <h1 className="mt-3 text-4xl font-semibold leading-tight text-black/90 md:text-6xl">
+              <h1 className="mt-3 text-4xl font-semibold leading-tight md:text-6xl">
                 Build Technology That Works in the Real World
               </h1>
 
               <div
                 className="mt-6 h-[3px] w-20 rounded-full"
-                style={{ background: LOGO_BLUE }}
+                style={{ background: ACCENT }}
               />
 
               <p className="mt-6 max-w-3xl text-base leading-relaxed text-black/70 md:text-lg">
-                While Fuzion Consulting Group does not have immediate openings,
+                While Fuzion Chickasaw Group does not have immediate openings,
                 we are always interested in connecting with talented
                 professionals who want to build practical, mission-driven
                 solutions in complex, regulated environments.
@@ -140,14 +148,19 @@ export default function CareersPage() {
               <div className="mt-8 flex flex-wrap gap-3">
                 <Link
                   href="#future-roles"
-                  className="rounded-full bg-black px-6 py-3 text-sm font-medium text-white hover:bg-black/90"
+                  className="rounded-full px-6 py-3 text-sm font-medium text-white transition hover:opacity-90"
+                  style={{ background: PRIMARY }}
                 >
                   View Future Roles
                 </Link>
 
                 <a
                   href="mailto:Careers@fcghelps.com"
-                  className="rounded-full border border-black/20 bg-white px-6 py-3 text-sm font-medium text-black/90 hover:bg-black/5"
+                  className="rounded-full border bg-white px-6 py-3 text-sm font-medium transition hover:bg-black/5"
+                  style={{
+                    borderColor: "rgba(201,162,77,0.65)",
+                    color: DARK,
+                  }}
                 >
                   Email Careers@fcghelps.com →
                 </a>
@@ -156,15 +169,20 @@ export default function CareersPage() {
 
             <div className="lg:col-span-5">
               <div
-                className="rounded-[32px] border-2 bg-[#f8fbff] p-8 shadow-[0_10px_30px_rgba(0,0,0,0.06)] md:p-10"
-                style={{ borderColor: LOGO_BLUE }}
+                className="rounded-[32px] border-2 bg-white p-8 shadow-[0_10px_30px_rgba(0,0,0,0.06)] md:p-10"
+                style={{ borderColor: ACCENT }}
               >
-                <p className="text-xs font-semibold tracking-[0.22em] text-black/55">
+                <p
+                  className="text-xs font-semibold tracking-[0.22em]"
+                  style={{ color: PRIMARY }}
+                >
                   FUTURE HIRING FOCUS
                 </p>
-                <h2 className="mt-3 text-2xl font-semibold text-black/90 md:text-3xl">
+
+                <h2 className="mt-3 text-2xl font-semibold md:text-3xl">
                   Areas we expect to grow
                 </h2>
+
                 <p className="mt-4 text-sm leading-relaxed text-black/65 md:text-base">
                   Fuzion expects future hiring needs across consulting,
                   delivery, engineering, operations, and client-facing roles as
@@ -175,7 +193,8 @@ export default function CareersPage() {
                   {industries.map((item) => (
                     <div
                       key={item}
-                      className="rounded-2xl border border-black/10 bg-white px-4 py-3 text-sm text-black/70"
+                      className="rounded-2xl border bg-white px-4 py-3 text-sm text-black/70"
+                      style={{ borderColor: "rgba(201,162,77,0.35)" }}
                     >
                       {item}
                     </div>
@@ -187,18 +206,22 @@ export default function CareersPage() {
         </div>
       </section>
 
-      <div className="h-[3px] w-full" style={{ background: LOGO_BLUE }} />
+      <div className="h-[3px] w-full" style={{ background: ACCENT }} />
 
-      {/* ===================== FUTURE ROLES ===================== */}
-      <section id="future-roles" className="bg-[#f8fbff]">
+      <section id="future-roles" style={{ background: "rgba(255,255,255,0.72)" }}>
         <div className="mx-auto max-w-7xl px-6 py-16">
           <div className="mx-auto max-w-3xl text-center">
-            <p className="text-xs font-semibold tracking-[0.25em] text-black/60">
+            <p
+              className="text-xs font-semibold tracking-[0.25em]"
+              style={{ color: PRIMARY }}
+            >
               FUTURE OPPORTUNITIES
             </p>
-            <h2 className="mt-3 text-3xl font-semibold text-black/90 md:text-4xl">
+
+            <h2 className="mt-3 text-3xl font-semibold md:text-4xl">
               Role profiles we anticipate hiring for
             </h2>
+
             <p className="mt-4 text-sm leading-relaxed text-black/60 md:text-base">
               These are not active openings today, but they reflect the types of
               roles we expect to hire for as Fuzion continues to grow.
@@ -209,18 +232,25 @@ export default function CareersPage() {
             {roleCards.map((role) => (
               <div
                 key={role.title}
-                className="rounded-[30px] border border-black/10 bg-white p-8 shadow-[0_10px_30px_rgba(0,0,0,0.05)]"
+                className="rounded-[30px] border bg-white p-8 shadow-[0_10px_30px_rgba(0,0,0,0.05)]"
+                style={{ borderColor: "rgba(201,162,77,0.45)" }}
               >
                 <div className="flex flex-wrap items-center gap-3">
                   <div
-                    className="inline-flex rounded-full px-4 py-1 text-xs font-semibold tracking-[0.18em] text-white"
-                    style={{ background: LOGO_BLUE }}
+                    className="inline-flex rounded-full px-4 py-1 text-xs font-semibold tracking-[0.18em]"
+                    style={{
+                      background: ACCENT,
+                      color: DARK,
+                    }}
                   >
                     {role.subtitle.toUpperCase()}
                   </div>
                 </div>
 
-                <h3 className="mt-5 text-2xl font-semibold leading-snug text-black/90">
+                <h3
+                  className="mt-5 text-2xl font-semibold leading-snug"
+                  style={{ color: PRIMARY }}
+                >
                   {role.title}
                 </h3>
 
@@ -241,11 +271,15 @@ export default function CareersPage() {
                     {role.bullets.map((item) => (
                       <div
                         key={item}
-                        className="flex gap-3 rounded-2xl border border-black/8 bg-[#f8fbff] px-4 py-3"
+                        className="flex gap-3 rounded-2xl border px-4 py-3"
+                        style={{
+                          borderColor: "rgba(201,162,77,0.35)",
+                          background: "rgba(246,243,236,0.75)",
+                        }}
                       >
                         <span
                           className="mt-2 inline-flex h-2.5 w-2.5 flex-none rounded-full"
-                          style={{ background: LOGO_BLUE }}
+                          style={{ background: ACCENT }}
                         />
                         <p className="text-sm leading-relaxed text-black/70">
                           {item}
@@ -263,11 +297,12 @@ export default function CareersPage() {
                     {role.qualifications.map((item) => (
                       <div
                         key={item}
-                        className="flex gap-3 rounded-2xl border border-black/8 bg-white px-4 py-3"
+                        className="flex gap-3 rounded-2xl border bg-white px-4 py-3"
+                        style={{ borderColor: "rgba(201,162,77,0.35)" }}
                       >
                         <span
                           className="mt-2 inline-flex h-2.5 w-2.5 flex-none rounded-full"
-                          style={{ background: LOGO_BLUE }}
+                          style={{ background: ACCENT }}
                         />
                         <p className="text-sm leading-relaxed text-black/70">
                           {item}
@@ -282,17 +317,21 @@ export default function CareersPage() {
         </div>
       </section>
 
-      {/* ===================== WHO THRIVES ===================== */}
-      <section className="bg-white">
+      <section style={{ background: BG }}>
         <div className="mx-auto max-w-7xl px-6 py-16">
           <div className="grid gap-10 lg:grid-cols-12 lg:items-start">
             <div className="lg:col-span-5">
-              <p className="text-xs font-semibold tracking-[0.25em] text-black/60">
+              <p
+                className="text-xs font-semibold tracking-[0.25em]"
+                style={{ color: PRIMARY }}
+              >
                 WHO THRIVES AT FUZION
               </p>
-              <h2 className="mt-3 text-3xl font-semibold leading-tight text-black/90 md:text-4xl">
+
+              <h2 className="mt-3 text-3xl font-semibold leading-tight md:text-4xl">
                 We look for people who care about real outcomes
               </h2>
+
               <p className="mt-5 text-sm leading-relaxed text-black/60 md:text-base">
                 Fuzion is built around practical execution, cross-functional
                 collaboration, and work that supports real organizations in
@@ -305,12 +344,13 @@ export default function CareersPage() {
                 {thrivePoints.map((item) => (
                   <div
                     key={item}
-                    className="rounded-3xl border border-black/10 bg-white p-6 shadow-[0_10px_24px_rgba(0,0,0,0.04)]"
+                    className="rounded-3xl border bg-white p-6 shadow-[0_10px_24px_rgba(0,0,0,0.04)]"
+                    style={{ borderColor: "rgba(201,162,77,0.45)" }}
                   >
                     <div className="flex items-start gap-3">
                       <span
                         className="mt-1 inline-flex h-3 w-3 flex-none rounded-full"
-                        style={{ background: LOGO_BLUE }}
+                        style={{ background: ACCENT }}
                       />
                       <p className="text-sm leading-relaxed text-black/70">
                         {item}
@@ -324,10 +364,9 @@ export default function CareersPage() {
         </div>
       </section>
 
-      {/* ===================== EXPRESS INTEREST ===================== */}
       <section
         className="relative overflow-hidden"
-        style={{ background: LOGO_BLUE }}
+        style={{ background: PRIMARY }}
       >
         <div className="pointer-events-none absolute inset-0 opacity-30 [background:radial-gradient(900px_420px_at_30%_15%,rgba(255,255,255,0.22),transparent_60%)]" />
         <div className="pointer-events-none absolute inset-0 opacity-20 [background:radial-gradient(700px_380px_at_80%_40%,rgba(0,0,0,0.20),transparent_60%)]" />
@@ -343,7 +382,10 @@ export default function CareersPage() {
                 Interested in future opportunities?
               </h3>
 
-              <div className="mt-4 h-[2px] w-16 bg-white/80" />
+              <div
+                className="mt-4 h-[2px] w-16"
+                style={{ background: ACCENT }}
+              />
 
               <p className="mt-8 max-w-2xl text-base leading-relaxed text-white/90">
                 If you’re interested in future opportunities with Fuzion, send a
@@ -363,18 +405,24 @@ export default function CareersPage() {
                 <p className="text-xs font-semibold tracking-[0.2em] text-white/75">
                   CAREERS CONTACT
                 </p>
+
                 <h4 className="mt-3 text-2xl font-semibold text-white">
                   Send your information directly
                 </h4>
+
                 <p className="mt-4 text-sm leading-relaxed text-white/80">
-                    Submit job inquiries and applications directly here for consideration
-  by our team.
+                  Submit job inquiries and applications directly here for
+                  consideration by our team.
                 </p>
 
                 <div className="mt-6">
                   <a
                     href="mailto:Careers@fcghelps.com"
-                    className="inline-flex w-full items-center justify-center rounded-2xl bg-white px-6 py-3 text-sm font-semibold text-black/90 hover:bg-white/90"
+                    className="inline-flex w-full items-center justify-center rounded-2xl px-6 py-3 text-sm font-semibold transition hover:opacity-90"
+                    style={{
+                      background: ACCENT,
+                      color: DARK,
+                    }}
                   >
                     Careers@fcghelps.com
                   </a>

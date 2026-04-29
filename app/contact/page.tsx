@@ -3,7 +3,10 @@
 import Link from "next/link";
 import { useState } from "react";
 
-const LOGO_BLUE = "#2a8bff";
+const PRIMARY = "#4B1E6D";
+const ACCENT = "#C9A24D";
+const DARK = "#1A1A1A";
+const BG = "#F6F3EC";
 
 export default function ContactPage() {
   const [formData, setFormData] = useState({
@@ -25,7 +28,9 @@ export default function ContactPage() {
   });
 
   const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
+    e: React.ChangeEvent<
+      HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
+    >
   ) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
@@ -67,7 +72,7 @@ export default function ContactPage() {
       title: "General Inquiries",
       value: "technology@fcghelps.com",
       description:
-        "Questions about Fuzion Consulting Group, services, technology support, or general inquiries.",
+        "Questions about Fuzion Chickasaw Group, services, technology support, or general inquiries.",
       href: "mailto:technology@fcghelps.com",
     },
     {
@@ -79,24 +84,33 @@ export default function ContactPage() {
   ];
 
   return (
-    <main className="min-h-screen bg-white pt-28 md:pt-32">
-      {/* HERO */}
-      <section className="relative overflow-hidden border-b border-black/5 bg-white">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(42,139,255,0.16),transparent_32%),radial-gradient(circle_at_bottom_left,rgba(42,139,255,0.10),transparent_28%)]" />
+    <main
+      className="min-h-screen pt-28 md:pt-32"
+      style={{ background: BG, color: DARK }}
+    >
+      <section
+        className="relative overflow-hidden border-b"
+        style={{
+          background: BG,
+          borderColor: "rgba(201,162,77,0.35)",
+        }}
+      >
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(75,30,109,0.14),transparent_32%),radial-gradient(circle_at_bottom_left,rgba(201,162,77,0.16),transparent_28%)]" />
+
         <div className="relative mx-auto max-w-7xl px-6 py-16 md:px-10 md:py-24">
           <div className="max-w-3xl">
             <div
               className="mb-5 inline-flex rounded-full border px-4 py-1 text-xs font-semibold tracking-[0.22em]"
               style={{
-                borderColor: `${LOGO_BLUE}33`,
-                color: LOGO_BLUE,
-                backgroundColor: `${LOGO_BLUE}10`,
+                borderColor: "rgba(201,162,77,0.6)",
+                color: PRIMARY,
+                backgroundColor: "rgba(201,162,77,0.16)",
               }}
             >
               CONTACT FUZION
             </div>
 
-            <h1 className="text-4xl font-semibold tracking-tight text-black md:text-6xl">
+            <h1 className="text-4xl font-semibold tracking-tight md:text-6xl">
               Let’s start the conversation.
             </h1>
 
@@ -110,14 +124,18 @@ export default function ContactPage() {
               <a
                 href="#contact-form"
                 className="inline-flex items-center rounded-full px-6 py-3 text-sm font-semibold text-white transition hover:opacity-90"
-                style={{ backgroundColor: LOGO_BLUE }}
+                style={{ backgroundColor: PRIMARY }}
               >
                 Send a Message
               </a>
 
               <Link
                 href="/services"
-                className="inline-flex items-center rounded-full border border-black/10 px-6 py-3 text-sm font-semibold text-black transition hover:border-black/20 hover:bg-black/[0.03]"
+                className="inline-flex items-center rounded-full border bg-white px-6 py-3 text-sm font-semibold transition hover:bg-black/[0.03]"
+                style={{
+                  borderColor: "rgba(201,162,77,0.65)",
+                  color: DARK,
+                }}
               >
                 Explore Services
               </Link>
@@ -126,24 +144,29 @@ export default function ContactPage() {
         </div>
       </section>
 
-      {/* CONTACT INFO CARDS */}
-      <section className="bg-white py-14 md:py-16">
+      <section className="py-14 md:py-16" style={{ background: BG }}>
         <div className="mx-auto max-w-7xl px-6 md:px-10">
           <div className="grid gap-5 md:grid-cols-2">
             {contactCards.map((card) => (
               <a
                 key={card.title}
                 href={card.href}
-                className="group rounded-[28px] border border-black/10 bg-white p-6 shadow-[0_10px_30px_rgba(0,0,0,0.04)] transition hover:-translate-y-1 hover:shadow-[0_18px_50px_rgba(42,139,255,0.12)]"
+                className="group rounded-[28px] border bg-white p-6 shadow-[0_10px_30px_rgba(0,0,0,0.04)] transition hover:-translate-y-1 hover:shadow-[0_18px_50px_rgba(75,30,109,0.12)]"
+                style={{ borderColor: "rgba(201,162,77,0.45)" }}
               >
                 <div
                   className="mb-4 h-1.5 w-14 rounded-full"
-                  style={{ backgroundColor: LOGO_BLUE }}
+                  style={{ backgroundColor: ACCENT }}
                 />
-                <h2 className="text-lg font-semibold text-black">{card.title}</h2>
+
+                <h2 className="text-lg font-semibold" style={{ color: PRIMARY }}>
+                  {card.title}
+                </h2>
+
                 <p className="mt-3 text-base font-medium text-black/85 group-hover:text-black">
                   {card.value}
                 </p>
+
                 <p className="mt-3 text-sm leading-6 text-black/60">
                   {card.description}
                 </p>
@@ -153,21 +176,28 @@ export default function ContactPage() {
         </div>
       </section>
 
-      {/* FORM + SIDEBAR */}
-      <section id="contact-form" className="bg-[#f8fbff] py-16 md:py-20">
+      <section
+        id="contact-form"
+        className="py-16 md:py-20"
+        style={{ background: "rgba(255,255,255,0.72)" }}
+      >
         <div className="mx-auto grid max-w-7xl gap-8 px-6 md:grid-cols-[1.2fr_0.8fr] md:px-10">
-          {/* FORM */}
-          <div className="rounded-[32px] border border-black/10 bg-white p-6 shadow-[0_20px_60px_rgba(0,0,0,0.05)] md:p-8">
+          <div
+            className="rounded-[32px] border bg-white p-6 shadow-[0_20px_60px_rgba(0,0,0,0.05)] md:p-8"
+            style={{ borderColor: "rgba(201,162,77,0.45)" }}
+          >
             <div className="mb-8">
               <p
                 className="text-xs font-semibold tracking-[0.22em]"
-                style={{ color: LOGO_BLUE }}
+                style={{ color: PRIMARY }}
               >
                 SEND US A MESSAGE
               </p>
-              <h2 className="mt-2 text-3xl font-semibold tracking-tight text-black">
+
+              <h2 className="mt-2 text-3xl font-semibold tracking-tight">
                 Tell us what you need.
               </h2>
+
               <p className="mt-3 max-w-2xl text-sm leading-6 text-black/65">
                 Share a little about your organization, your goals, and the support
                 you’re looking for. We’ll route your message to the right team.
@@ -186,10 +216,11 @@ export default function ContactPage() {
                     value={formData.name}
                     onChange={handleChange}
                     required
-                    className="w-full rounded-2xl border border-black/10 bg-white px-4 py-3 text-sm text-black outline-none transition focus:border-transparent focus:ring-2"
+                    className="w-full rounded-2xl border bg-white px-4 py-3 text-sm text-black outline-none transition focus:border-transparent focus:ring-2"
                     style={
                       {
-                        "--tw-ring-color": `${LOGO_BLUE}55`,
+                        borderColor: "rgba(201,162,77,0.45)",
+                        "--tw-ring-color": "rgba(75,30,109,0.35)",
                       } as React.CSSProperties
                     }
                     placeholder="Your name"
@@ -205,10 +236,11 @@ export default function ContactPage() {
                     type="text"
                     value={formData.organization}
                     onChange={handleChange}
-                    className="w-full rounded-2xl border border-black/10 bg-white px-4 py-3 text-sm text-black outline-none transition focus:border-transparent focus:ring-2"
+                    className="w-full rounded-2xl border bg-white px-4 py-3 text-sm text-black outline-none transition focus:border-transparent focus:ring-2"
                     style={
                       {
-                        "--tw-ring-color": `${LOGO_BLUE}55`,
+                        borderColor: "rgba(201,162,77,0.45)",
+                        "--tw-ring-color": "rgba(75,30,109,0.35)",
                       } as React.CSSProperties
                     }
                     placeholder="Company or organization"
@@ -227,10 +259,11 @@ export default function ContactPage() {
                     value={formData.email}
                     onChange={handleChange}
                     required
-                    className="w-full rounded-2xl border border-black/10 bg-white px-4 py-3 text-sm text-black outline-none transition focus:border-transparent focus:ring-2"
+                    className="w-full rounded-2xl border bg-white px-4 py-3 text-sm text-black outline-none transition focus:border-transparent focus:ring-2"
                     style={
                       {
-                        "--tw-ring-color": `${LOGO_BLUE}55`,
+                        borderColor: "rgba(201,162,77,0.45)",
+                        "--tw-ring-color": "rgba(75,30,109,0.35)",
                       } as React.CSSProperties
                     }
                     placeholder="you@company.com"
@@ -246,10 +279,11 @@ export default function ContactPage() {
                     type="tel"
                     value={formData.phone}
                     onChange={handleChange}
-                    className="w-full rounded-2xl border border-black/10 bg-white px-4 py-3 text-sm text-black outline-none transition focus:border-transparent focus:ring-2"
+                    className="w-full rounded-2xl border bg-white px-4 py-3 text-sm text-black outline-none transition focus:border-transparent focus:ring-2"
                     style={
                       {
-                        "--tw-ring-color": `${LOGO_BLUE}55`,
+                        borderColor: "rgba(201,162,77,0.45)",
+                        "--tw-ring-color": "rgba(75,30,109,0.35)",
                       } as React.CSSProperties
                     }
                     placeholder="(555) 555-5555"
@@ -265,16 +299,19 @@ export default function ContactPage() {
                   name="service"
                   value={formData.service}
                   onChange={handleChange}
-                  className="w-full rounded-2xl border border-black/10 bg-white px-4 py-3 text-sm text-black outline-none transition focus:border-transparent focus:ring-2"
+                  className="w-full rounded-2xl border bg-white px-4 py-3 text-sm text-black outline-none transition focus:border-transparent focus:ring-2"
                   style={
                     {
-                      "--tw-ring-color": `${LOGO_BLUE}55`,
+                      borderColor: "rgba(201,162,77,0.45)",
+                      "--tw-ring-color": "rgba(75,30,109,0.35)",
                     } as React.CSSProperties
                   }
                 >
                   <option value="">Select a service</option>
                   <option value="Business Consulting">Business Consulting</option>
-                  <option value="Digital Transformation">Digital Transformation</option>
+                  <option value="Digital Transformation">
+                    Digital Transformation
+                  </option>
                   <option value="Enterprise Systems">Enterprise Systems</option>
                   <option value="Advisory Services">Advisory Services</option>
                   <option value="Project Delivery">Project Delivery</option>
@@ -292,10 +329,11 @@ export default function ContactPage() {
                   onChange={handleChange}
                   required
                   rows={6}
-                  className="w-full rounded-2xl border border-black/10 bg-white px-4 py-3 text-sm text-black outline-none transition focus:border-transparent focus:ring-2"
+                  className="w-full rounded-2xl border bg-white px-4 py-3 text-sm text-black outline-none transition focus:border-transparent focus:ring-2"
                   style={
                     {
-                      "--tw-ring-color": `${LOGO_BLUE}55`,
+                      borderColor: "rgba(201,162,77,0.45)",
+                      "--tw-ring-color": "rgba(75,30,109,0.35)",
                     } as React.CSSProperties
                   }
                   placeholder="Tell us about your project, initiative, or what support you're looking for."
@@ -318,25 +356,29 @@ export default function ContactPage() {
                 type="submit"
                 disabled={isSubmitting}
                 className="inline-flex min-w-[180px] items-center justify-center rounded-full px-6 py-3 text-sm font-semibold text-white transition hover:opacity-90 disabled:cursor-not-allowed disabled:opacity-70"
-                style={{ backgroundColor: LOGO_BLUE }}
+                style={{ backgroundColor: PRIMARY }}
               >
                 {isSubmitting ? "Sending..." : "Submit Inquiry"}
               </button>
             </form>
           </div>
 
-          {/* SIDEBAR */}
           <aside className="space-y-6">
-            <div className="rounded-[32px] border border-black/10 bg-white p-6 shadow-[0_20px_60px_rgba(0,0,0,0.04)]">
+            <div
+              className="rounded-[32px] border bg-white p-6 shadow-[0_20px_60px_rgba(0,0,0,0.04)]"
+              style={{ borderColor: "rgba(201,162,77,0.45)" }}
+            >
               <p
                 className="text-xs font-semibold tracking-[0.22em]"
-                style={{ color: LOGO_BLUE }}
+                style={{ color: PRIMARY }}
               >
                 WHY FUZION
               </p>
-              <h3 className="mt-2 text-2xl font-semibold tracking-tight text-black">
+
+              <h3 className="mt-2 text-2xl font-semibold tracking-tight">
                 Strategic guidance with execution in mind.
               </h3>
+
               <p className="mt-4 text-sm leading-6 text-black/65">
                 We support organizations navigating growth, modernization,
                 transformation, and operational complexity with practical,
@@ -353,7 +395,7 @@ export default function ContactPage() {
                   <div key={item} className="flex items-start gap-3">
                     <div
                       className="mt-1 h-2.5 w-2.5 rounded-full"
-                      style={{ backgroundColor: LOGO_BLUE }}
+                      style={{ backgroundColor: ACCENT }}
                     />
                     <p className="text-sm leading-6 text-black/70">{item}</p>
                   </div>
@@ -361,23 +403,35 @@ export default function ContactPage() {
               </div>
             </div>
 
-            <div className="rounded-[32px] border border-black/10 bg-white p-6 shadow-[0_20px_60px_rgba(0,0,0,0.04)]">
+            <div
+              className="rounded-[32px] border bg-white p-6 shadow-[0_20px_60px_rgba(0,0,0,0.04)]"
+              style={{ borderColor: "rgba(201,162,77,0.45)" }}
+            >
               <p
                 className="text-xs font-semibold tracking-[0.22em]"
-                style={{ color: LOGO_BLUE }}
+                style={{ color: PRIMARY }}
               >
                 OFFICE
               </p>
-              <h3 className="mt-2 text-2xl font-semibold tracking-tight text-black">
-                Based in Kansas
+
+              <h3 className="mt-2 text-2xl font-semibold tracking-tight">
+                Based in Oklahoma
               </h3>
+
               <p className="mt-4 text-sm leading-6 text-black/65">
-                Fuzion Consulting Group serves clients across industries with a
-                focus on strategic delivery, modernization, and organizational impact.
+                Fuzion Chickasaw Group serves clients across industries with a
+                focus on strategic delivery, modernization, and organizational
+                impact.
               </p>
 
-              <div className="mt-6 rounded-[24px] border border-dashed border-black/10 bg-[#f8fbff] p-5">
-                <p className="text-sm font-medium text-black">Olathe, Kansas</p>
+              <div
+                className="mt-6 rounded-[24px] border border-dashed p-5"
+                style={{
+                  borderColor: "rgba(201,162,77,0.5)",
+                  background: "rgba(246,243,236,0.75)",
+                }}
+              >
+                <p className="text-sm font-medium text-black">Calera, Oklahoma</p>
                 <p className="mt-1 text-sm leading-6 text-black/60">
                   Available for regional and national client engagements.
                 </p>

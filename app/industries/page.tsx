@@ -2,7 +2,10 @@
 
 import Link from "next/link";
 
-const LOGO_BLUE = "#2a8bff";
+const PRIMARY = "#4B1E6D";
+const ACCENT = "#C9A24D";
+const DARK = "#1A1A1A";
+const BG = "#F6F3EC";
 
 const industries = [
   {
@@ -69,7 +72,10 @@ const industries = [
 
 export default function IndustriesPage() {
   return (
-    <main className="min-h-screen bg-white pt-28 md:pt-32">
+    <main
+      className="min-h-screen pt-28 md:pt-32"
+      style={{ background: BG, color: DARK }}
+    >
       {/* HERO */}
       <section className="relative overflow-hidden">
         <div className="relative h-[420px] w-full">
@@ -78,15 +84,24 @@ export default function IndustriesPage() {
             alt="Industries we serve"
             className="h-full w-full object-cover"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-black/10 to-transparent" />
+          <div
+            className="absolute inset-0"
+            style={{
+              background:
+                "linear-gradient(to top, rgba(26,26,26,0.55), rgba(26,26,26,0.12), transparent)",
+            }}
+          />
         </div>
 
         <div className="mx-auto max-w-7xl px-6 py-14">
-          <p className="text-xs font-semibold tracking-[0.25em] text-black/60">
+          <p
+            className="text-xs font-semibold tracking-[0.25em]"
+            style={{ color: PRIMARY }}
+          >
             INDUSTRIES
           </p>
 
-          <h1 className="mt-3 text-4xl font-semibold tracking-tight text-black/90 md:text-5xl">
+          <h1 className="mt-3 text-4xl font-semibold tracking-tight md:text-5xl">
             Industries we serve
           </h1>
 
@@ -99,14 +114,19 @@ export default function IndustriesPage() {
           <div className="mt-8 flex flex-wrap gap-3">
             <Link
               href="/contact"
-              className="rounded-full bg-black px-6 py-3 text-sm font-medium text-white hover:bg-black/90"
+              className="rounded-full px-6 py-3 text-sm font-medium text-white transition hover:opacity-90"
+              style={{ background: PRIMARY }}
             >
               Talk to a Consultant
             </Link>
 
             <Link
               href="/services"
-              className="rounded-full border border-black/20 bg-white px-6 py-3 text-sm font-medium text-black/90 hover:bg-black/5"
+              className="rounded-full border bg-white px-6 py-3 text-sm font-medium transition hover:bg-black/5"
+              style={{
+                borderColor: "rgba(201,162,77,0.65)",
+                color: DARK,
+              }}
             >
               View Services →
             </Link>
@@ -114,17 +134,20 @@ export default function IndustriesPage() {
         </div>
       </section>
 
-      <div className="h-[3px] w-full" style={{ background: LOGO_BLUE }} />
+      <div className="h-[3px] w-full" style={{ background: ACCENT }} />
 
       {/* WHO WE SERVE */}
-      <section className="bg-white">
+      <section style={{ background: BG }}>
         <div className="mx-auto max-w-7xl px-6 py-16">
           <div>
-            <p className="text-xs font-semibold tracking-[0.25em] text-black/60">
+            <p
+              className="text-xs font-semibold tracking-[0.25em]"
+              style={{ color: PRIMARY }}
+            >
               WHO WE SERVE
             </p>
 
-            <h2 className="mt-3 text-3xl font-semibold text-black/90">
+            <h2 className="mt-3 text-3xl font-semibold">
               Deep experience across industries
             </h2>
 
@@ -140,14 +163,18 @@ export default function IndustriesPage() {
             {industries.map((industry) => (
               <div
                 key={industry.name}
-                className="group rounded-3xl border border-black/10 bg-white p-7 shadow-[0_10px_30px_rgba(0,0,0,0.05)] transition hover:-translate-y-[2px] hover:shadow-[0_16px_50px_rgba(0,0,0,0.08)]"
+                className="group rounded-3xl border bg-white p-7 shadow-[0_10px_30px_rgba(0,0,0,0.05)] transition hover:-translate-y-[2px] hover:shadow-[0_16px_50px_rgba(0,0,0,0.08)]"
+                style={{ borderColor: "rgba(201,162,77,0.45)" }}
               >
                 <div
                   className="mb-4 h-[3px] w-12 rounded-full"
-                  style={{ background: LOGO_BLUE }}
+                  style={{ background: ACCENT }}
                 />
 
-                <h3 className="text-xl font-semibold text-black/90">
+                <h3
+                  className="text-xl font-semibold"
+                  style={{ color: PRIMARY }}
+                >
                   {industry.name}
                 </h3>
 
@@ -163,7 +190,7 @@ export default function IndustriesPage() {
       {/* CTA */}
       <section
         className="relative overflow-hidden"
-        style={{ background: LOGO_BLUE }}
+        style={{ background: PRIMARY }}
       >
         <div className="pointer-events-none absolute inset-0 opacity-30 [background:radial-gradient(900px_420px_at_30%_15%,rgba(255,255,255,0.22),transparent_60%)]" />
         <div className="pointer-events-none absolute inset-0 opacity-20 [background:radial-gradient(700px_380px_at_80%_40%,rgba(0,0,0,0.20),transparent_60%)]" />
@@ -174,6 +201,7 @@ export default function IndustriesPage() {
               <h3 className="text-3xl font-semibold text-white md:text-4xl">
                 Let’s build something that works.
               </h3>
+
               <p className="mt-4 max-w-2xl text-sm text-white/90 md:text-base">
                 No matter the industry, we help organizations streamline
                 operations, improve visibility, and move forward with confidence.
@@ -183,7 +211,11 @@ export default function IndustriesPage() {
             <div className="flex flex-wrap gap-3">
               <Link
                 href="/contact"
-                className="rounded-full bg-white px-7 py-3 text-sm font-semibold text-black/90 hover:bg-white/90"
+                className="rounded-full px-7 py-3 text-sm font-semibold transition hover:opacity-90"
+                style={{
+                  background: ACCENT,
+                  color: DARK,
+                }}
               >
                 Contact Us →
               </Link>

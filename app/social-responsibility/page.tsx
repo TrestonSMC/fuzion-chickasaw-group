@@ -2,7 +2,10 @@
 
 import Link from "next/link";
 
-const LOGO_BLUE = "#2a8bff";
+const PRIMARY = "#4B1E6D";
+const ACCENT = "#C9A24D";
+const DARK = "#1A1A1A";
+const BG = "#F6F3EC";
 
 const coreValues = [
   {
@@ -50,8 +53,10 @@ const shortValues = [
 
 export default function SocialResponsibilityPage() {
   return (
-    <main className="min-h-screen bg-white pt-28 md:pt-32">
-      {/* ===================== HERO ===================== */}
+    <main
+      className="min-h-screen pt-28 md:pt-32"
+      style={{ background: BG, color: DARK }}
+    >
       <section className="relative overflow-hidden">
         <div className="relative h-[420px] w-full">
           <img
@@ -59,15 +64,25 @@ export default function SocialResponsibilityPage() {
             alt="Our Values and Social Responsibility"
             className="h-full w-full object-cover"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/45 via-black/20 to-transparent" />
+
+          <div
+            className="absolute inset-0"
+            style={{
+              background:
+                "linear-gradient(to top, rgba(26,26,26,0.58), rgba(26,26,26,0.18), transparent)",
+            }}
+          />
         </div>
 
         <div className="mx-auto max-w-7xl px-6 py-14">
-          <p className="text-xs font-semibold tracking-[0.25em] text-black/60">
+          <p
+            className="text-xs font-semibold tracking-[0.25em]"
+            style={{ color: PRIMARY }}
+          >
             SOCIAL RESPONSIBILITY
           </p>
 
-          <h1 className="mt-3 text-4xl font-semibold tracking-tight text-black/90 md:text-5xl">
+          <h1 className="mt-3 text-4xl font-semibold tracking-tight md:text-5xl">
             Our Values & Social Responsibility
           </h1>
 
@@ -78,14 +93,19 @@ export default function SocialResponsibilityPage() {
           <div className="mt-8 flex flex-wrap gap-3">
             <Link
               href="/contact"
-              className="rounded-full bg-black px-6 py-3 text-sm font-medium text-white hover:bg-black/90"
+              className="rounded-full px-6 py-3 text-sm font-medium text-white transition hover:opacity-90"
+              style={{ background: PRIMARY }}
             >
               Contact Us
             </Link>
 
             <Link
               href="/company"
-              className="rounded-full border border-black/20 bg-white px-6 py-3 text-sm font-medium text-black/90 hover:bg-black/5"
+              className="rounded-full border bg-white px-6 py-3 text-sm font-medium transition hover:bg-black/5"
+              style={{
+                borderColor: "rgba(201,162,77,0.65)",
+                color: DARK,
+              }}
             >
               About Our Company →
             </Link>
@@ -93,19 +113,19 @@ export default function SocialResponsibilityPage() {
         </div>
       </section>
 
-      <div className="h-[3px] w-full" style={{ background: LOGO_BLUE }} />
+      <div className="h-[3px] w-full" style={{ background: ACCENT }} />
 
-      {/* ===================== CORE VALUES ===================== */}
-      <section className="bg-white">
+      <section style={{ background: BG }}>
         <div className="mx-auto max-w-7xl px-6 py-16">
           <div>
-            <p className="text-xs font-semibold tracking-[0.25em] text-black/60">
+            <p
+              className="text-xs font-semibold tracking-[0.25em]"
+              style={{ color: PRIMARY }}
+            >
               FUZION VALUES
             </p>
 
-            <h2 className="mt-3 text-3xl font-semibold text-black/90">
-              Fuzion Core Values
-            </h2>
+            <h2 className="mt-3 text-3xl font-semibold">Fuzion Core Values</h2>
 
             <p className="mt-3 max-w-3xl text-sm leading-relaxed text-black/60">
               Our values shape how we work, how we partner, and how we build
@@ -117,19 +137,24 @@ export default function SocialResponsibilityPage() {
             {coreValues.map((value, index) => (
               <div
                 key={value.title}
-                className="rounded-3xl border border-black/10 bg-white p-8 shadow-[0_10px_30px_rgba(0,0,0,0.05)]"
+                className="rounded-3xl border bg-white p-8 shadow-[0_10px_30px_rgba(0,0,0,0.05)]"
+                style={{ borderColor: "rgba(201,162,77,0.45)" }}
               >
                 <div
-                  className="mb-5 inline-flex rounded-full border px-3 py-1 text-xs font-semibold tracking-wide text-black/70"
+                  className="mb-5 inline-flex rounded-full border px-3 py-1 text-xs font-semibold tracking-wide"
                   style={{
-                    borderColor: "rgba(0,0,0,0.12)",
-                    background: "rgba(42,139,255,0.10)",
+                    borderColor: "rgba(201,162,77,0.6)",
+                    background: "rgba(201,162,77,0.16)",
+                    color: DARK,
                   }}
                 >
                   {String(index + 1).padStart(2, "0")}
                 </div>
 
-                <h3 className="text-2xl font-semibold tracking-tight text-black/90">
+                <h3
+                  className="text-2xl font-semibold tracking-tight"
+                  style={{ color: PRIMARY }}
+                >
                   {value.title}
                 </h3>
 
@@ -139,7 +164,7 @@ export default function SocialResponsibilityPage() {
 
                 <div
                   className="mt-6 h-[3px] w-12 rounded-full"
-                  style={{ background: LOGO_BLUE }}
+                  style={{ background: ACCENT }}
                 />
               </div>
             ))}
@@ -147,15 +172,23 @@ export default function SocialResponsibilityPage() {
         </div>
       </section>
 
-      {/* ===================== SOCIAL RESPONSIBILITY ===================== */}
-      <section className="border-t border-black/10 bg-gray-50">
+      <section
+        className="border-t"
+        style={{
+          borderColor: "rgba(201,162,77,0.35)",
+          background: "rgba(255,255,255,0.72)",
+        }}
+      >
         <div className="mx-auto max-w-7xl px-6 py-16">
           <div className="max-w-5xl">
-            <p className="text-xs font-semibold tracking-[0.25em] text-black/60">
+            <p
+              className="text-xs font-semibold tracking-[0.25em]"
+              style={{ color: PRIMARY }}
+            >
               RESPONSIBILITY
             </p>
 
-            <h2 className="mt-3 text-3xl font-semibold text-black/90 md:text-4xl">
+            <h2 className="mt-3 text-3xl font-semibold md:text-4xl">
               Fuzion Commitment to Social Responsibility
             </h2>
 
@@ -166,7 +199,7 @@ export default function SocialResponsibilityPage() {
 
             <p className="mt-6 text-sm leading-relaxed text-black/70 md:text-base">
               Through the launch of{" "}
-              <span className="font-semibold text-black/85">
+              <span className="font-semibold" style={{ color: PRIMARY }}>
                 Fuzion Chickasaw Group
               </span>
               , a certified Minority Women-Owned company, we are expanding
@@ -177,19 +210,26 @@ export default function SocialResponsibilityPage() {
             </p>
           </div>
 
-          <div className="mt-10 rounded-3xl border border-black/10 bg-white p-8 shadow-[0_10px_30px_rgba(0,0,0,0.04)]">
-            <h3 className="text-xl font-semibold text-black/90">We strive to:</h3>
+          <div
+            className="mt-10 rounded-3xl border bg-white p-8 shadow-[0_10px_30px_rgba(0,0,0,0.04)]"
+            style={{ borderColor: "rgba(201,162,77,0.45)" }}
+          >
+            <h3 className="text-xl font-semibold" style={{ color: PRIMARY }}>
+              We strive to:
+            </h3>
 
             <div className="mt-6 grid gap-4 md:grid-cols-2">
               {commitments.map((item) => (
                 <div
                   key={item}
-                  className="flex items-start gap-3 rounded-2xl border border-black/10 bg-white p-4"
+                  className="flex items-start gap-3 rounded-2xl border bg-white p-4"
+                  style={{ borderColor: "rgba(201,162,77,0.35)" }}
                 >
                   <div
                     className="mt-1 h-2.5 w-2.5 shrink-0 rounded-full"
-                    style={{ background: LOGO_BLUE }}
+                    style={{ background: ACCENT }}
                   />
+
                   <p className="text-sm leading-relaxed text-black/70 md:text-base">
                     {item}
                   </p>
@@ -205,15 +245,17 @@ export default function SocialResponsibilityPage() {
         </div>
       </section>
 
-      {/* ===================== VALUES AT A GLANCE ===================== */}
-      <section className="bg-white">
+      <section style={{ background: BG }}>
         <div className="mx-auto max-w-7xl px-6 py-16">
           <div>
-            <p className="text-xs font-semibold tracking-[0.25em] text-black/60">
+            <p
+              className="text-xs font-semibold tracking-[0.25em]"
+              style={{ color: PRIMARY }}
+            >
               AT A GLANCE
             </p>
 
-            <h2 className="mt-3 text-3xl font-semibold text-black/90">
+            <h2 className="mt-3 text-3xl font-semibold">
               Our Values at a Glance
             </h2>
           </div>
@@ -222,12 +264,14 @@ export default function SocialResponsibilityPage() {
             {shortValues.map((item) => (
               <div
                 key={item}
-                className="rounded-2xl border border-black/10 bg-white p-6 shadow-[0_8px_24px_rgba(0,0,0,0.04)]"
+                className="rounded-2xl border bg-white p-6 shadow-[0_8px_24px_rgba(0,0,0,0.04)]"
+                style={{ borderColor: "rgba(201,162,77,0.45)" }}
               >
                 <div
                   className="mb-4 h-[3px] w-12 rounded-full"
-                  style={{ background: LOGO_BLUE }}
+                  style={{ background: ACCENT }}
                 />
+
                 <p className="text-sm font-medium leading-relaxed text-black/80 md:text-base">
                   {item}
                 </p>
@@ -237,10 +281,9 @@ export default function SocialResponsibilityPage() {
         </div>
       </section>
 
-      {/* ===================== CTA ===================== */}
       <section
         className="relative overflow-hidden"
-        style={{ background: LOGO_BLUE }}
+        style={{ background: PRIMARY }}
       >
         <div className="pointer-events-none absolute inset-0 opacity-30 [background:radial-gradient(900px_420px_at_30%_15%,rgba(255,255,255,0.22),transparent_60%)]" />
         <div className="pointer-events-none absolute inset-0 opacity-20 [background:radial-gradient(700px_380px_at_80%_40%,rgba(0,0,0,0.20),transparent_60%)]" />
@@ -251,6 +294,7 @@ export default function SocialResponsibilityPage() {
               <h3 className="text-3xl font-semibold tracking-tight text-white md:text-4xl">
                 Purpose-driven work matters.
               </h3>
+
               <p className="mt-4 max-w-2xl text-sm leading-relaxed text-white/90 md:text-base">
                 We partner with organizations that care about innovation,
                 responsibility, and long-term impact.
@@ -260,10 +304,15 @@ export default function SocialResponsibilityPage() {
             <div className="flex flex-wrap gap-3">
               <Link
                 href="/contact"
-                className="rounded-full bg-white px-7 py-3 text-sm font-semibold text-black/90 hover:bg-white/90"
+                className="rounded-full px-7 py-3 text-sm font-semibold transition hover:opacity-90"
+                style={{
+                  background: ACCENT,
+                  color: DARK,
+                }}
               >
                 Contact Us →
               </Link>
+
               <Link
                 href="/services"
                 className="rounded-full border border-white/30 bg-white/10 px-7 py-3 text-sm font-semibold text-white backdrop-blur hover:bg-white/15"

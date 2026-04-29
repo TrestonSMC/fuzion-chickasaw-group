@@ -2,7 +2,10 @@
 
 import Link from "next/link";
 
-const LOGO_BLUE = "#2a8bff";
+const PRIMARY = "#4B1E6D";
+const ACCENT = "#C9A24D";
+const DARK = "#1A1A1A";
+const BG = "#F6F3EC";
 
 const projectMeta = [
   {
@@ -41,17 +44,19 @@ const projectMeta = [
 
 export default function SupportBeaconPage() {
   return (
-    <main className="min-h-screen bg-white">
-      <div className="h-[3px] w-full" style={{ background: LOGO_BLUE }} />
+    <main className="min-h-screen" style={{ background: BG, color: DARK }}>
+      <div className="h-[3px] w-full" style={{ background: ACCENT }} />
 
-      {/* HERO */}
-      <section className="bg-white">
+      <section>
         <div className="mx-auto max-w-5xl px-6 py-16 md:py-20">
-          <p className="text-xs font-semibold tracking-[0.25em] text-black/60">
-            FUZION CONSULTING GROUP
+          <p
+            className="text-xs font-semibold tracking-[0.25em]"
+            style={{ color: PRIMARY }}
+          >
+            FUZION CHICKASAW GROUP
           </p>
 
-          <h1 className="mt-3 text-3xl font-semibold leading-tight text-black/90 md:text-5xl">
+          <h1 className="mt-3 text-3xl font-semibold leading-tight md:text-5xl">
             Support Beacon Relief – Fuzion Logistics Application
           </h1>
 
@@ -64,13 +69,19 @@ export default function SupportBeaconPage() {
           <div className="mt-8 flex flex-wrap gap-3">
             <Link
               href="/projects"
-              className="rounded-full bg-black px-6 py-3 text-sm font-medium text-white hover:bg-black/90"
+              className="rounded-full px-6 py-3 text-sm font-medium text-white transition hover:opacity-90"
+              style={{ background: PRIMARY }}
             >
               Back to Projects
             </Link>
+
             <Link
               href="/contact"
-              className="rounded-full border border-black/20 bg-white px-6 py-3 text-sm font-medium text-black/90 hover:bg-black/5"
+              className="rounded-full border bg-white px-6 py-3 text-sm font-medium transition hover:bg-black/5"
+              style={{
+                borderColor: "rgba(201,162,77,0.65)",
+                color: DARK,
+              }}
             >
               Contact Us →
             </Link>
@@ -78,19 +89,19 @@ export default function SupportBeaconPage() {
         </div>
       </section>
 
-      {/* META CARD */}
-      <section className="bg-white">
+      <section>
         <div className="mx-auto max-w-5xl px-6 pb-8">
           <div
             className="rounded-3xl border-2 bg-white p-8 shadow-[0_10px_30px_rgba(0,0,0,0.06)]"
-            style={{ borderColor: LOGO_BLUE }}
+            style={{ borderColor: ACCENT }}
           >
             <div className="space-y-5">
               {projectMeta.map((item) => (
                 <div key={item.label}>
-                  <p className="text-sm font-semibold text-black/90">
+                  <p className="text-sm font-semibold" style={{ color: PRIMARY }}>
                     {item.label}:
                   </p>
+
                   <p className="mt-1 text-base leading-relaxed text-black/70">
                     {item.value}
                   </p>
@@ -101,54 +112,52 @@ export default function SupportBeaconPage() {
         </div>
       </section>
 
-      {/* CONTENT */}
-      <section className="bg-white">
+      <section>
         <div className="mx-auto max-w-5xl px-6 py-10">
           <div className="space-y-12">
             <ContentBlock title="Project Highlight">
               <p>
                 Fuzion Consulting Group and Fuzion Chickasaw Group began their
                 partnership with Rancher Navy during a devastating series of
-                wildfires impacting ranching communities across Kansas,
-                Oklahoma, and the Texas Panhandle.
+                wildfires impacting ranching communities across Kansas, Oklahoma,
+                and the Texas Panhandle.
               </p>
 
               <p>
                 What started as a volunteer effort delivering donated hay quickly
                 revealed a much larger challenge—coordinating large-scale disaster
-                relief using spreadsheets, phone calls, and manual tracking
-                exposed the nonprofit to operational risk and limited its ability
-                to scale.
+                relief using spreadsheets, phone calls, and manual tracking exposed
+                the nonprofit to operational risk and limited its ability to scale.
               </p>
 
               <p>
                 Rancher Navy was coordinating hay donations, volunteer drivers,
-                disaster locations, and delivery logistics across multiple
-                states—and even Canada—using spreadsheets alone. As disaster
-                frequency increased, so did the urgency for a secure,
-                scalable, purpose-built system.
+                disaster locations, and delivery logistics across multiple states—and
+                even Canada—using spreadsheets alone. As disaster frequency
+                increased, so did the urgency for a secure, scalable, purpose-built
+                system.
               </p>
             </ContentBlock>
 
             <ContentBlock title="What Is Support Beacon Relief">
               <p>
-                Support Beacon Relief is a secure, end-to-end disaster response
-                and logistics platform designed to replace manual coordination
-                with real-time visibility, accountability, and automation.
+                Support Beacon Relief is a secure, end-to-end disaster response and
+                logistics platform designed to replace manual coordination with
+                real-time visibility, accountability, and automation.
               </p>
 
               <p>
                 Developed at no cost to Rancher Navy, the platform enables the
                 organization to manage multiple disaster events simultaneously,
-                coordinate donations and deliveries, track volunteer drivers
-                across the U.S. and Canada, and ensure recipients receive accurate
-                delivery notifications.
+                coordinate donations and deliveries, track volunteer drivers across
+                the U.S. and Canada, and ensure recipients receive accurate delivery
+                notifications.
               </p>
 
               <p>
-                Fuzion retains ownership of the platform while donating full use
-                to Rancher Navy and plans to license Support Beacon to public,
-                private, and nonprofit organizations supporting disaster response.
+                Fuzion retains ownership of the platform while donating full use to
+                Rancher Navy and plans to license Support Beacon to public, private,
+                and nonprofit organizations supporting disaster response.
               </p>
             </ContentBlock>
 
@@ -166,8 +175,8 @@ export default function SupportBeaconPage() {
               </p>
 
               <p>
-                The system also supports donor and recipient coordination,
-                ensuring resources are matched to verified needs while improving
+                The system also supports donor and recipient coordination, ensuring
+                resources are matched to verified needs while improving
                 transparency, accountability, and delivery readiness.
               </p>
 
@@ -180,10 +189,10 @@ export default function SupportBeaconPage() {
 
             <ContentBlock title="Community & Strategic Impact">
               <p>
-                Support Beacon Relief enables Rancher Navy to respond faster
-                during critical disaster windows, scale operations safely, and
-                reduce administrative burden while protecting sensitive volunteer
-                and recipient data.
+                Support Beacon Relief enables Rancher Navy to respond faster during
+                critical disaster windows, scale operations safely, and reduce
+                administrative burden while protecting sensitive volunteer and
+                recipient data.
               </p>
 
               <p>
@@ -217,8 +226,7 @@ export default function SupportBeaconPage() {
         </div>
       </section>
 
-      {/* CTA */}
-      <section className="relative overflow-hidden" style={{ background: LOGO_BLUE }}>
+      <section className="relative overflow-hidden" style={{ background: PRIMARY }}>
         <div className="pointer-events-none absolute inset-0 opacity-30 [background:radial-gradient(900px_420px_at_30%_15%,rgba(255,255,255,0.22),transparent_60%)]" />
         <div className="pointer-events-none absolute inset-0 opacity-20 [background:radial-gradient(700px_380px_at_80%_40%,rgba(0,0,0,0.20),transparent_60%)]" />
 
@@ -228,7 +236,9 @@ export default function SupportBeaconPage() {
               <h3 className="text-4xl font-semibold tracking-tight text-white">
                 Building technology that actually makes an impact.
               </h3>
-              <div className="mt-4 h-[2px] w-16 bg-white/80" />
+
+              <div className="mt-4 h-[2px] w-16" style={{ background: ACCENT }} />
+
               <p className="mt-8 max-w-2xl text-base leading-relaxed text-white/90">
                 Fuzion partners with organizations to design scalable platforms,
                 modernize operations, and deliver real-world results—whether in
@@ -236,14 +246,19 @@ export default function SupportBeaconPage() {
               </p>
             </div>
 
-            <div className="lg:col-span-5 flex items-end lg:justify-end">
+            <div className="flex items-end lg:col-span-5 lg:justify-end">
               <div className="flex flex-wrap gap-3">
                 <Link
                   href="/contact"
-                  className="inline-flex items-center justify-center rounded-full bg-white px-6 py-3 text-sm font-semibold text-black/90 hover:bg-white/90"
+                  className="inline-flex items-center justify-center rounded-full px-6 py-3 text-sm font-semibold transition hover:opacity-90"
+                  style={{
+                    background: ACCENT,
+                    color: DARK,
+                  }}
                 >
                   Contact Us →
                 </Link>
+
                 <Link
                   href="/projects"
                   className="inline-flex items-center justify-center rounded-full border border-white/40 px-6 py-3 text-sm font-semibold text-white hover:bg-white/10"
@@ -268,9 +283,10 @@ function ContentBlock({
 }) {
   return (
     <section>
-      <h2 className="text-2xl font-semibold text-black/90 md:text-3xl">
+      <h2 className="text-2xl font-semibold md:text-3xl" style={{ color: PRIMARY }}>
         {title}
       </h2>
+
       <div className="mt-5 space-y-4 text-base leading-relaxed text-black/70">
         {children}
       </div>

@@ -2,7 +2,10 @@
 
 import Link from "next/link";
 
-const LOGO_BLUE = "#2a8bff";
+const PRIMARY = "#4B1E6D";
+const ACCENT = "#C9A24D";
+const DARK = "#1A1A1A";
+const BG = "#F6F3EC";
 
 type Advisor = {
   name: string;
@@ -40,14 +43,19 @@ export default function PrincipalPartnersPage() {
   ];
 
   return (
-    <main className="min-h-screen bg-white pt-28 md:pt-32">
-      {/* ================= HERO ================= */}
+    <main
+      className="min-h-screen pt-28 md:pt-32"
+      style={{ background: BG, color: DARK }}
+    >
       <section className="mx-auto max-w-7xl px-6 py-12">
-        <p className="text-xs font-semibold tracking-[0.25em] text-black/60">
+        <p
+          className="text-xs font-semibold tracking-[0.25em]"
+          style={{ color: PRIMARY }}
+        >
           PRINCIPAL ADVISORS
         </p>
 
-        <h1 className="mt-3 text-4xl font-semibold text-black/90 md:text-5xl">
+        <h1 className="mt-3 text-4xl font-semibold md:text-5xl">
           Strategic perspective across the markets we serve and grow
         </h1>
 
@@ -65,18 +73,17 @@ export default function PrincipalPartnersPage() {
         </p>
       </section>
 
-      <div className="h-[3px] w-full" style={{ background: LOGO_BLUE }} />
+      <div className="h-[3px] w-full" style={{ background: ACCENT }} />
 
-      {/* ================= WHAT THEY DO ================= */}
       <section className="mx-auto max-w-7xl px-6 py-16">
-        <h2 className="text-2xl font-semibold text-black/90">
+        <h2 className="text-2xl font-semibold" style={{ color: PRIMARY }}>
           What Principal Advisors Do
         </h2>
 
         <div className="mt-8 space-y-4 text-black/70">
           <p>Principal Advisors support Fuzion by:</p>
 
-          <ul className="space-y-3 pl-5 list-disc">
+          <ul className="list-disc space-y-3 pl-5">
             <li>
               Providing <strong>strategic guidance</strong> grounded in hands-on
               industry experience
@@ -101,9 +108,8 @@ export default function PrincipalPartnersPage() {
         </div>
       </section>
 
-      {/* ================= ADVISORS GRID ================= */}
       <section className="mx-auto max-w-7xl px-6 pb-16">
-        <h2 className="text-2xl font-semibold text-black/90">
+        <h2 className="text-2xl font-semibold" style={{ color: PRIMARY }}>
           Meet Our Principal Advisors
         </h2>
 
@@ -111,9 +117,13 @@ export default function PrincipalPartnersPage() {
           {advisors.map((advisor) => (
             <div
               key={advisor.name}
-              className="rounded-2xl border border-black/10 bg-white p-6 text-center shadow-[0_10px_30px_rgba(0,0,0,0.05)]"
+              className="rounded-2xl border bg-white p-6 text-center shadow-[0_10px_30px_rgba(0,0,0,0.05)]"
+              style={{ borderColor: "rgba(201,162,77,0.45)" }}
             >
-              <div className="mx-auto h-32 w-32 overflow-hidden rounded-full border border-black/10">
+              <div
+                className="mx-auto h-32 w-32 overflow-hidden rounded-full border bg-white"
+                style={{ borderColor: "rgba(201,162,77,0.6)" }}
+              >
                 <img
                   src={advisor.img}
                   alt={advisor.name}
@@ -121,18 +131,25 @@ export default function PrincipalPartnersPage() {
                 />
               </div>
 
-              <p className="mt-5 text-lg font-semibold text-black/90">
+              <div
+                className="mx-auto mt-5 h-[3px] w-12 rounded-full"
+                style={{ background: ACCENT }}
+              />
+
+              <p
+                className="mt-5 text-lg font-semibold"
+                style={{ color: PRIMARY }}
+              >
                 {advisor.name}
               </p>
 
-              <p className="mt-2 text-sm text-black/60">
-                {advisor.title}
-              </p>
+              <p className="mt-2 text-sm text-black/60">{advisor.title}</p>
 
               <div className="mt-4">
                 <Link
                   href={advisor.href}
-                  className="text-sm font-medium text-black/80 hover:text-black"
+                  className="text-sm font-medium hover:opacity-80"
+                  style={{ color: PRIMARY }}
                 >
                   View Profile →
                 </Link>
@@ -142,12 +159,13 @@ export default function PrincipalPartnersPage() {
         </div>
       </section>
 
-      {/* ================= CTA ================= */}
       <section
         className="relative overflow-hidden"
-        style={{ background: LOGO_BLUE }}
+        style={{ background: PRIMARY }}
       >
-        <div className="mx-auto max-w-7xl px-6 py-16">
+        <div className="pointer-events-none absolute inset-0 opacity-30 [background:radial-gradient(900px_420px_at_30%_15%,rgba(255,255,255,0.22),transparent_60%)]" />
+
+        <div className="relative mx-auto max-w-7xl px-6 py-16">
           <h3 className="text-3xl font-semibold text-white">
             Work with a team backed by real-world experience.
           </h3>
@@ -155,7 +173,11 @@ export default function PrincipalPartnersPage() {
           <div className="mt-6">
             <Link
               href="/contact"
-              className="rounded-full bg-white px-6 py-3 text-sm font-semibold text-black"
+              className="rounded-full px-6 py-3 text-sm font-semibold transition hover:opacity-90"
+              style={{
+                background: ACCENT,
+                color: DARK,
+              }}
             >
               Contact Us →
             </Link>

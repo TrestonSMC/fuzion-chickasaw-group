@@ -2,7 +2,10 @@
 
 import Link from "next/link";
 
-const LOGO_BLUE = "#2a8bff";
+const PRIMARY = "#4B1E6D";
+const ACCENT = "#C9A24D";
+const DARK = "#1A1A1A";
+const BG = "#F6F3EC";
 const NAV_HEIGHT = 112;
 
 type ServiceCategory = {
@@ -115,16 +118,23 @@ export default function CapabilitiesPage() {
 
   return (
     <main
-      className="min-h-screen bg-white"
-      style={{ paddingTop: `${NAV_HEIGHT}px` }}
+      className="min-h-screen"
+      style={{
+        paddingTop: `${NAV_HEIGHT}px`,
+        background: BG,
+        color: DARK,
+      }}
     >
-      <section className="relative overflow-hidden bg-white">
+      <section className="relative overflow-hidden" style={{ background: BG }}>
         <div className="mx-auto max-w-7xl px-6 py-20">
-          <p className="text-xs font-semibold tracking-[0.25em] text-black/60">
+          <p
+            className="text-xs font-semibold tracking-[0.25em]"
+            style={{ color: PRIMARY }}
+          >
             CAPABILITIES
           </p>
 
-          <h1 className="mt-3 text-4xl font-semibold tracking-tight text-black/90 md:text-5xl">
+          <h1 className="mt-3 text-4xl font-semibold tracking-tight md:text-5xl">
             Fuzion capabilities for business, technology, and operational
             transformation.
           </h1>
@@ -142,14 +152,19 @@ export default function CapabilitiesPage() {
           <div className="mt-8 flex flex-wrap gap-3">
             <Link
               href="/contact"
-              className="rounded-full bg-black px-6 py-3 text-sm font-medium text-white hover:bg-black/90"
+              className="rounded-full px-6 py-3 text-sm font-medium text-white transition hover:opacity-90"
+              style={{ background: PRIMARY }}
             >
               Talk to a Consultant
             </Link>
 
             <Link
               href="/company"
-              className="rounded-full border border-black/20 bg-white px-6 py-3 text-sm font-medium text-black/90 hover:bg-black/5"
+              className="rounded-full border bg-white px-6 py-3 text-sm font-medium transition hover:bg-black/5"
+              style={{
+                borderColor: "rgba(201,162,77,0.65)",
+                color: DARK,
+              }}
             >
               About Our Company →
             </Link>
@@ -157,16 +172,19 @@ export default function CapabilitiesPage() {
         </div>
       </section>
 
-      <div className="h-[3px] w-full" style={{ background: LOGO_BLUE }} />
+      <div className="h-[3px] w-full" style={{ background: ACCENT }} />
 
-      <section className="bg-white">
+      <section style={{ background: BG }}>
         <div className="mx-auto max-w-7xl px-6 py-16">
           <div>
-            <p className="text-xs font-semibold tracking-[0.25em] text-black/60">
+            <p
+              className="text-xs font-semibold tracking-[0.25em]"
+              style={{ color: PRIMARY }}
+            >
               WHAT WE DO
             </p>
 
-            <h2 className="mt-3 text-3xl font-semibold text-black/90">
+            <h2 className="mt-3 text-3xl font-semibold">
               Our consulting capabilities
             </h2>
 
@@ -180,7 +198,7 @@ export default function CapabilitiesPage() {
           <div className="mt-12 space-y-14">
             {serviceCategories.map((category) => (
               <div key={category.heading}>
-                <h3 className="text-2xl font-semibold tracking-tight text-black/90">
+                <h3 className="text-2xl font-semibold tracking-tight">
                   {category.heading}
                 </h3>
 
@@ -189,14 +207,16 @@ export default function CapabilitiesPage() {
                     <Link
                       key={service.title}
                       href={service.href}
-                      className="group rounded-3xl border border-black/10 bg-white p-7 shadow-[0_10px_30px_rgba(0,0,0,0.06)] transition hover:-translate-y-[2px] hover:shadow-[0_16px_50px_rgba(0,0,0,0.10)]"
+                      className="group rounded-3xl border bg-white p-7 shadow-[0_10px_30px_rgba(0,0,0,0.06)] transition hover:-translate-y-[2px] hover:shadow-[0_16px_50px_rgba(0,0,0,0.10)]"
+                      style={{ borderColor: "rgba(201,162,77,0.45)" }}
                     >
                       <div className="flex items-center justify-between gap-4">
                         <div
-                          className="inline-flex items-center rounded-full border px-3 py-1 text-xs font-semibold tracking-wide text-black/70"
+                          className="inline-flex items-center rounded-full border px-3 py-1 text-xs font-semibold tracking-wide"
                           style={{
-                            borderColor: "rgba(0,0,0,0.12)",
-                            background: "rgba(42,139,255,0.10)",
+                            borderColor: "rgba(201,162,77,0.6)",
+                            background: "rgba(201,162,77,0.16)",
+                            color: DARK,
                           }}
                         >
                           {service.badge}
@@ -204,7 +224,10 @@ export default function CapabilitiesPage() {
 
                         <div
                           className="grid h-10 w-10 place-items-center rounded-2xl border bg-white transition group-hover:translate-x-0.5"
-                          style={{ borderColor: "rgba(0,0,0,0.12)" }}
+                          style={{
+                            borderColor: "rgba(201,162,77,0.55)",
+                            color: PRIMARY,
+                          }}
                           aria-hidden="true"
                         >
                           →
@@ -212,7 +235,10 @@ export default function CapabilitiesPage() {
                       </div>
 
                       <div className="mt-6">
-                        <h4 className="text-xl font-semibold tracking-tight text-black/90">
+                        <h4
+                          className="text-xl font-semibold tracking-tight"
+                          style={{ color: PRIMARY }}
+                        >
                           {service.title}
                         </h4>
 
@@ -222,7 +248,7 @@ export default function CapabilitiesPage() {
 
                         <div
                           className="mt-6 h-[3px] w-12 rounded-full"
-                          style={{ background: LOGO_BLUE }}
+                          style={{ background: ACCENT }}
                         />
                       </div>
                     </Link>
@@ -235,7 +261,11 @@ export default function CapabilitiesPage() {
           <div className="mt-12">
             <Link
               href="/contact"
-              className="inline-flex rounded-full border border-black/20 bg-white px-6 py-3 text-sm font-semibold text-black/90 hover:bg-black/5"
+              className="inline-flex rounded-full border bg-white px-6 py-3 text-sm font-semibold transition hover:bg-black/5"
+              style={{
+                borderColor: "rgba(201,162,77,0.65)",
+                color: DARK,
+              }}
             >
               Start a conversation →
             </Link>
@@ -245,7 +275,7 @@ export default function CapabilitiesPage() {
 
       <section
         className="relative overflow-hidden"
-        style={{ background: LOGO_BLUE }}
+        style={{ background: PRIMARY }}
       >
         <div className="pointer-events-none absolute inset-0 opacity-30 [background:radial-gradient(900px_420px_at_30%_15%,rgba(255,255,255,0.22),transparent_60%)]" />
         <div className="pointer-events-none absolute inset-0 opacity-20 [background:radial-gradient(700px_380px_at_80%_40%,rgba(0,0,0,0.20),transparent_60%)]" />
@@ -266,7 +296,11 @@ export default function CapabilitiesPage() {
             <div className="flex flex-wrap gap-3">
               <Link
                 href="/contact"
-                className="rounded-full bg-white px-7 py-3 text-sm font-semibold text-black/90 hover:bg-white/90"
+                className="rounded-full px-7 py-3 text-sm font-semibold transition hover:opacity-90"
+                style={{
+                  background: ACCENT,
+                  color: DARK,
+                }}
               >
                 Contact Us →
               </Link>

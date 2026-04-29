@@ -2,7 +2,10 @@
 
 import Link from "next/link";
 
-const LOGO_BLUE = "#2a8bff";
+const PRIMARY = "#4B1E6D";
+const ACCENT = "#C9A24D";
+const DARK = "#1A1A1A";
+const BG = "#F6F3EC";
 
 type Project = {
   slug: string;
@@ -246,21 +249,27 @@ const engagementPhases = [
 
 export default function ProjectsPage() {
   return (
-    <main className="min-h-screen bg-white pt-28 md:pt-32">
-      <section className="bg-white">
+    <main
+      className="min-h-screen pt-28 md:pt-32"
+      style={{ background: BG, color: DARK }}
+    >
+      <section style={{ background: BG }}>
         <div className="mx-auto max-w-7xl px-6 pb-16 pt-10 md:pb-20 md:pt-12">
           <div className="grid gap-10 lg:grid-cols-12 lg:items-start">
             <div className="lg:col-span-6">
-              <p className="text-xs font-semibold tracking-[0.25em] text-black/60">
+              <p
+                className="text-xs font-semibold tracking-[0.25em]"
+                style={{ color: PRIMARY }}
+              >
                 PROJECT EXPERIENCE
               </p>
 
-              <h1 className="mt-3 text-3xl font-semibold leading-tight text-black/90 md:text-5xl">
+              <h1 className="mt-3 text-3xl font-semibold leading-tight md:text-5xl">
                 Selected projects built for complex operations and measurable outcomes.
               </h1>
 
               <p className="mt-5 max-w-2xl text-base leading-relaxed text-black/70 md:text-lg">
-                Fuzion Consulting Group helps organizations modernize legacy systems,
+                Fuzion Chickasaw Group helps organizations modernize legacy systems,
                 improve visibility, and create scalable digital foundations. Our
                 project work reflects hands-on delivery across business-critical
                 applications, operational transformation, and modernization strategy.
@@ -269,14 +278,19 @@ export default function ProjectsPage() {
               <div className="mt-8 flex flex-wrap gap-3">
                 <Link
                   href="/contact"
-                  className="rounded-full bg-black px-6 py-3 text-sm font-medium text-white hover:bg-black/90"
+                  className="rounded-full px-6 py-3 text-sm font-medium text-white transition hover:opacity-90"
+                  style={{ background: PRIMARY }}
                 >
                   Start a Conversation
                 </Link>
 
                 <Link
                   href="/services"
-                  className="rounded-full border border-black/20 bg-white px-6 py-3 text-sm font-medium text-black/90 hover:bg-black/5"
+                  className="rounded-full border bg-white px-6 py-3 text-sm font-medium transition hover:bg-black/5"
+                  style={{
+                    borderColor: "rgba(201,162,77,0.65)",
+                    color: DARK,
+                  }}
                 >
                   View Services →
                 </Link>
@@ -286,9 +300,9 @@ export default function ProjectsPage() {
             <div className="lg:col-span-6">
               <div
                 className="rounded-3xl border-2 bg-white p-8 shadow-[0_10px_30px_rgba(0,0,0,0.06)]"
-                style={{ borderColor: LOGO_BLUE }}
+                style={{ borderColor: ACCENT }}
               >
-                <h2 className="text-xl font-semibold text-black/90">
+                <h2 className="text-xl font-semibold" style={{ color: PRIMARY }}>
                   What our project work demonstrates
                 </h2>
 
@@ -303,12 +317,13 @@ export default function ProjectsPage() {
                   ].map((item) => (
                     <div
                       key={item}
-                      className="rounded-2xl border border-black/10 bg-white/80 p-4"
+                      className="rounded-2xl border bg-white/80 p-4"
+                      style={{ borderColor: "rgba(201,162,77,0.35)" }}
                     >
                       <div className="flex items-start gap-3">
                         <span
                           className="mt-1 inline-flex h-2.5 w-2.5 flex-none rounded-full"
-                          style={{ background: LOGO_BLUE }}
+                          style={{ background: ACCENT }}
                         />
                         <p className="text-sm leading-relaxed text-black/70">
                           {item}
@@ -330,15 +345,19 @@ export default function ProjectsPage() {
         </div>
       </section>
 
-      <section className="bg-white">
+      <section style={{ background: BG }}>
         <div className="mx-auto max-w-7xl px-6 pb-8">
           <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-4">
             {impactStats.map((stat) => (
               <div
                 key={stat.label}
-                className="rounded-3xl border border-black/10 bg-white p-6 shadow-[0_10px_30px_rgba(0,0,0,0.05)]"
+                className="rounded-3xl border bg-white p-6 shadow-[0_10px_30px_rgba(0,0,0,0.05)]"
+                style={{ borderColor: "rgba(201,162,77,0.45)" }}
               >
-                <div className="text-3xl font-semibold text-black/90">
+                <div
+                  className="text-3xl font-semibold"
+                  style={{ color: PRIMARY }}
+                >
                   {stat.value}
                 </div>
                 <div className="mt-2 text-sm text-black/60">{stat.label}</div>
@@ -348,14 +367,17 @@ export default function ProjectsPage() {
         </div>
       </section>
 
-      <section className="bg-white">
+      <section style={{ background: BG }}>
         <div className="mx-auto max-w-7xl px-6 py-16">
           <div>
-            <p className="text-xs font-semibold tracking-[0.25em] text-black/60">
+            <p
+              className="text-xs font-semibold tracking-[0.25em]"
+              style={{ color: PRIMARY }}
+            >
               FEATURED PROJECTS
             </p>
 
-            <h2 className="mt-3 text-3xl font-semibold text-black/90 md:text-4xl">
+            <h2 className="mt-3 text-3xl font-semibold md:text-4xl">
               Recent project highlights
             </h2>
           </div>
@@ -364,7 +386,8 @@ export default function ProjectsPage() {
             {projects.map((project) => (
               <article
                 key={project.slug}
-                className="overflow-hidden rounded-3xl border border-black/10 bg-white shadow-[0_10px_30px_rgba(0,0,0,0.08)]"
+                className="overflow-hidden rounded-3xl border bg-white shadow-[0_10px_30px_rgba(0,0,0,0.08)]"
+                style={{ borderColor: "rgba(201,162,77,0.45)" }}
               >
                 <div className="grid lg:grid-cols-12">
                   <div className="relative min-h-[320px] lg:col-span-5">
@@ -383,8 +406,8 @@ export default function ProjectsPage() {
                     <div
                       className="absolute left-6 top-6 inline-flex items-center rounded-full border px-3 py-1 text-xs font-semibold tracking-wide text-white backdrop-blur"
                       style={{
-                        borderColor: "rgba(255,255,255,0.25)",
-                        background: "rgba(42,139,255,0.20)",
+                        borderColor: "rgba(255,255,255,0.35)",
+                        background: "rgba(75,30,109,0.52)",
                       }}
                     >
                       {project.badge}
@@ -392,20 +415,32 @@ export default function ProjectsPage() {
                   </div>
 
                   <div className="p-8 md:p-10 lg:col-span-7">
-                    <p className="text-xs font-semibold tracking-[0.25em] text-black/55">
+                    <p
+                      className="text-xs font-semibold tracking-[0.25em]"
+                      style={{ color: PRIMARY }}
+                    >
                       {project.category}
                     </p>
 
-                    <h3 className="mt-3 text-3xl font-semibold text-black/90 md:text-4xl">
+                    <h3
+                      className="mt-3 text-3xl font-semibold md:text-4xl"
+                      style={{ color: PRIMARY }}
+                    >
                       {project.title}
                     </h3>
 
                     <div className="mt-4 flex flex-wrap gap-3 text-sm text-black/60">
-                      <span className="rounded-full border border-black/10 px-3 py-1">
+                      <span
+                        className="rounded-full border px-3 py-1"
+                        style={{ borderColor: "rgba(201,162,77,0.45)" }}
+                      >
                         {project.client}
                       </span>
 
-                      <span className="rounded-full border border-black/10 px-3 py-1">
+                      <span
+                        className="rounded-full border px-3 py-1"
+                        style={{ borderColor: "rgba(201,162,77,0.45)" }}
+                      >
                         {project.duration}
                       </span>
                     </div>
@@ -415,7 +450,13 @@ export default function ProjectsPage() {
                     </p>
 
                     {project.epmsNote && (
-                      <div className="mt-5 rounded-2xl border border-black/10 bg-black/[0.02] p-4">
+                      <div
+                        className="mt-5 rounded-2xl border p-4"
+                        style={{
+                          borderColor: "rgba(201,162,77,0.35)",
+                          background: "rgba(201,162,77,0.08)",
+                        }}
+                      >
                         <p className="text-sm leading-relaxed text-black/65">
                           {project.epmsNote}
                         </p>
@@ -433,7 +474,7 @@ export default function ProjectsPage() {
                             <div key={item} className="flex items-start gap-3">
                               <span
                                 className="mt-2 inline-flex h-2.5 w-2.5 flex-none rounded-full"
-                                style={{ background: LOGO_BLUE }}
+                                style={{ background: ACCENT }}
                               />
 
                               <p className="text-sm leading-relaxed text-black/70">
@@ -454,7 +495,7 @@ export default function ProjectsPage() {
                             <div key={item} className="flex items-start gap-3">
                               <span
                                 className="mt-2 inline-flex h-2.5 w-2.5 flex-none rounded-full"
-                                style={{ background: LOGO_BLUE }}
+                                style={{ background: ACCENT }}
                               />
 
                               <p className="text-sm leading-relaxed text-black/70">
@@ -469,7 +510,8 @@ export default function ProjectsPage() {
                     <div className="mt-8">
                       <Link
                         href={`/projects/${project.slug}`}
-                        className="inline-flex items-center justify-center rounded-full bg-black px-6 py-3 text-sm font-medium text-white hover:bg-black/90"
+                        className="inline-flex items-center justify-center rounded-full px-6 py-3 text-sm font-medium text-white transition hover:opacity-90"
+                        style={{ background: PRIMARY }}
                       >
                         View Project Details →
                       </Link>
@@ -482,26 +524,33 @@ export default function ProjectsPage() {
         </div>
       </section>
 
-      <section className="bg-white">
+      <section style={{ background: BG }}>
         <div className="mx-auto max-w-7xl px-6 py-6 md:py-10">
           <div
             className="rounded-3xl border-2 bg-white p-8 shadow-[0_10px_30px_rgba(0,0,0,0.06)]"
-            style={{ borderColor: LOGO_BLUE }}
+            style={{ borderColor: ACCENT }}
           >
             <div className="grid gap-8 lg:grid-cols-3">
               {engagementPhases.map((phase, index) => (
                 <div
                   key={phase.title}
-                  className="rounded-2xl border border-black/10 bg-white/80 p-5"
+                  className="rounded-2xl border bg-white/80 p-5"
+                  style={{ borderColor: "rgba(201,162,77,0.4)" }}
                 >
                   <div
-                    className="inline-flex h-9 w-9 items-center justify-center rounded-full text-sm font-semibold text-white"
-                    style={{ background: LOGO_BLUE }}
+                    className="inline-flex h-9 w-9 items-center justify-center rounded-full text-sm font-semibold"
+                    style={{
+                      background: ACCENT,
+                      color: DARK,
+                    }}
                   >
                     {index + 1}
                   </div>
 
-                  <h3 className="mt-4 text-lg font-semibold text-black/90">
+                  <h3
+                    className="mt-4 text-lg font-semibold"
+                    style={{ color: PRIMARY }}
+                  >
                     {phase.title}
                   </h3>
 
@@ -517,7 +566,7 @@ export default function ProjectsPage() {
 
       <section
         className="relative overflow-hidden"
-        style={{ background: LOGO_BLUE }}
+        style={{ background: PRIMARY }}
       >
         <div className="pointer-events-none absolute inset-0 opacity-30 [background:radial-gradient(900px_420px_at_30%_15%,rgba(255,255,255,0.22),transparent_60%)]" />
         <div className="pointer-events-none absolute inset-0 opacity-20 [background:radial-gradient(700px_380px_at_80%_40%,rgba(0,0,0,0.20),transparent_60%)]" />
@@ -529,10 +578,13 @@ export default function ProjectsPage() {
                 Need a partner for modernization, support, or digital transformation?
               </h3>
 
-              <div className="mt-4 h-[2px] w-16 bg-white/80" />
+              <div
+                className="mt-4 h-[2px] w-16"
+                style={{ background: ACCENT }}
+              />
 
               <p className="mt-8 max-w-2xl text-base leading-relaxed text-white/90">
-                Fuzion Consulting Group helps organizations stabilize critical
+                Fuzion Chickasaw Group helps organizations stabilize critical
                 systems, improve operational visibility, and build practical paths
                 forward with modern technology.
               </p>
@@ -542,7 +594,11 @@ export default function ProjectsPage() {
               <div className="flex flex-wrap gap-3">
                 <Link
                   href="/contact"
-                  className="inline-flex items-center justify-center rounded-full bg-white px-6 py-3 text-sm font-semibold text-black/90 hover:bg-white/90"
+                  className="inline-flex items-center justify-center rounded-full px-6 py-3 text-sm font-semibold transition hover:opacity-90"
+                  style={{
+                    background: ACCENT,
+                    color: DARK,
+                  }}
                 >
                   Contact Us →
                 </Link>
