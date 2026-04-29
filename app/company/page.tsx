@@ -182,13 +182,13 @@ export default function AboutPage() {
           </p>
 
           <h1 className="mt-3 text-4xl font-semibold tracking-tight md:text-5xl">
-            Modern Business needs Modern Technology
+            Modern Organizations Require Thoughtful, Trusted Technology
           </h1>
 
           <p className="mt-6 max-w-3xl text-base leading-relaxed text-black/70 md:text-lg">
-            Fuzion Chickasaw Group is a mission-driven consulting and technology
-            firm delivering practical solutions for complex business,
-            operational, and regulated environments.
+            Fuzion Chickasaw Group is a business and technology consulting firm
+            launched in 2025 to support organizations operating in regulated,
+            mission-driven, and community-focused environments.
           </p>
 
           <div className="mt-8 flex flex-wrap gap-3">
@@ -208,7 +208,7 @@ export default function AboutPage() {
                 color: DARK,
               }}
             >
-              View Services →
+              View Capabilities →
             </Link>
           </div>
         </div>
@@ -228,22 +228,36 @@ export default function AboutPage() {
               </p>
 
               <h2 className="mt-3 text-3xl font-semibold tracking-tight md:text-4xl">
-                Sustainable solutions. Client-centered delivery.
+                Modern Organizations Require Thoughtful, Trusted Technology
               </h2>
 
               <p className="mt-6 text-sm leading-relaxed text-black/60 md:text-base">
-                We help organizations bridge the gap between business operations
-                and modern technology through practical, scalable consulting
-                solutions. Our approach is rooted in clarity, collaboration, and
-                long-term value creation for every client we serve.
+                Fuzion Chickasaw Group is a business and technology consulting
+                firm launched in 2025 to support organizations operating in{" "}
+                <span className="font-semibold text-black">
+                  regulated, mission-driven, and community-focused environments.
+                </span>{" "}
+                Building on the delivery experience of Fuzion Consulting Group,
+                we bring a values-driven, execution-focused approach to helping
+                clients modernize operations, strengthen governance, and deploy
+                technology responsibly.
               </p>
 
               <p className="mt-6 text-sm leading-relaxed text-black/60 md:text-base">
-                With decades of combined leadership and delivery experience, our
-                team understands the communication gaps that often exist between
-                traditional corporate IT, field teams, and operational business
-                units. We design systems and strategies that bring those worlds
-                together.
+                Fuzion Chickasaw Group is actively pursuing{" "}
+                <span className="font-semibold text-black">
+                  Native American and Woman-Owned business certifications
+                </span>
+                , reflecting our long-term commitment to serving Native American
+                organizations, public-sector entities, utilities, nonprofits, and
+                enterprises with integrity, accountability, and respect for
+                sovereignty.
+              </p>
+
+              <p className="mt-6 text-sm leading-relaxed text-black/60 md:text-base">
+                Our certification efforts are underway and reflect our dedication
+                to building lasting, trusted partnerships within Native American
+                and underserved markets.
               </p>
 
               <div className="mt-8 flex flex-wrap gap-3">
@@ -252,7 +266,7 @@ export default function AboutPage() {
                   className="rounded-full px-6 py-3 text-sm font-medium text-white transition hover:opacity-90"
                   style={{ background: PRIMARY }}
                 >
-                  Explore Services
+                  Explore Capabilities
                 </Link>
 
                 <Link
@@ -489,10 +503,7 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <section
-        className="relative overflow-hidden"
-        style={{ background: PRIMARY }}
-      >
+      <section className="relative overflow-hidden" style={{ background: PRIMARY }}>
         <div className="pointer-events-none absolute inset-0 opacity-30 [background:radial-gradient(900px_420px_at_30%_15%,rgba(255,255,255,0.22),transparent_60%)]" />
         <div className="pointer-events-none absolute inset-0 opacity-20 [background:radial-gradient(700px_380px_at_80%_40%,rgba(0,0,0,0.20),transparent_60%)]" />
 
@@ -526,7 +537,7 @@ export default function AboutPage() {
                 href="/services"
                 className="rounded-full border border-white/30 bg-white/10 px-7 py-3 text-sm font-semibold text-white backdrop-blur hover:bg-white/15"
               >
-                View Services →
+                View Capabilities →
               </Link>
             </div>
           </div>
