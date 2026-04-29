@@ -2,7 +2,10 @@
 
 import Link from "next/link";
 
-const LOGO_BLUE = "#2a8bff";
+const PRIMARY = "#4B1E6D";
+const ACCENT = "#C9A24D";
+const DARK = "#1A1A1A";
+const BG = "#F6F3EC";
 
 const articleMeta = [
   {
@@ -19,8 +22,7 @@ const articleMeta = [
   },
   {
     label: "Organization",
-    value:
-      "Fuzion Consulting Group / Fuzion Chickasaw Group / Rancher Navy",
+    value: "Fuzion Consulting Group / Fuzion Chickasaw Group / Rancher Navy",
   },
   {
     label: "Focus",
@@ -35,17 +37,16 @@ const articleMeta = [
 
 export default function SupportBeaconReliefPlatformPage() {
   return (
-    <main className="min-h-screen bg-white">
-      <div className="h-[3px] w-full" style={{ background: LOGO_BLUE }} />
+    <main className="min-h-screen" style={{ background: BG, color: DARK }}>
+      <div className="h-[3px] w-full" style={{ background: ACCENT }} />
 
-      {/* HERO */}
-      <section className="bg-white">
+      <section>
         <div className="mx-auto max-w-5xl px-6 py-16 md:py-20">
-          <p className="text-xs font-semibold tracking-[0.25em] text-black/60">
-            FUZION CONSULTING GROUP
+          <p className="text-xs font-semibold tracking-[0.25em]" style={{ color: PRIMARY }}>
+            FUZION CHICKASAW GROUP
           </p>
 
-          <h1 className="mt-3 text-3xl font-semibold leading-tight text-black/90 md:text-5xl">
+          <h1 className="mt-3 text-3xl font-semibold leading-tight md:text-5xl">
             Fuzion Announces Development of Enterprise Support Beacon Relief
             Platform Inspired by Partnership with Rancher Navy
           </h1>
@@ -58,33 +59,24 @@ export default function SupportBeaconReliefPlatformPage() {
           </p>
 
           <div className="mt-8 flex flex-wrap gap-3">
-            <Link
-              href="/news"
-              className="rounded-full bg-black px-6 py-3 text-sm font-medium text-white hover:bg-black/90"
-            >
+            <Link href="/news" className="rounded-full px-6 py-3 text-sm font-medium text-white transition hover:opacity-90" style={{ background: PRIMARY }}>
               Back to News
             </Link>
-            <Link
-              href="/contact"
-              className="rounded-full border border-black/20 bg-white px-6 py-3 text-sm font-medium text-black/90 hover:bg-black/5"
-            >
+
+            <Link href="/contact" className="rounded-full border bg-white px-6 py-3 text-sm font-medium transition hover:bg-black/5" style={{ borderColor: "rgba(201,162,77,0.65)", color: DARK }}>
               Contact Us →
             </Link>
           </div>
         </div>
       </section>
 
-      {/* TOP INFO BOX */}
-      <section className="bg-white">
+      <section>
         <div className="mx-auto max-w-5xl px-6 pb-8">
-          <div
-            className="rounded-3xl border-2 bg-white p-8 shadow-[0_10px_30px_rgba(0,0,0,0.06)]"
-            style={{ borderColor: LOGO_BLUE }}
-          >
+          <div className="rounded-3xl border-2 bg-white p-8 shadow-[0_10px_30px_rgba(0,0,0,0.06)]" style={{ borderColor: ACCENT }}>
             <div className="space-y-5">
               {articleMeta.map((item) => (
                 <div key={item.label}>
-                  <p className="text-sm font-semibold text-black/90">
+                  <p className="text-sm font-semibold" style={{ color: PRIMARY }}>
                     {item.label}:
                   </p>
                   <p className="mt-1 text-base leading-relaxed text-black/70">
@@ -97,8 +89,7 @@ export default function SupportBeaconReliefPlatformPage() {
         </div>
       </section>
 
-      {/* BODY CONTENT */}
-      <section className="bg-white">
+      <section>
         <div className="mx-auto max-w-5xl px-6 py-10">
           <div className="space-y-12">
             <ContentBlock title="Future Enterprise Product Details">
@@ -170,23 +161,14 @@ export default function SupportBeaconReliefPlatformPage() {
         </div>
       </section>
 
-      {/* CTA */}
-      <section
-        className="relative overflow-hidden"
-        style={{ background: LOGO_BLUE }}
-      >
+      <section className="relative overflow-hidden" style={{ background: PRIMARY }}>
         <div className="relative mx-auto max-w-5xl px-6 py-20">
           <div className="flex flex-wrap gap-3">
-            <Link
-              href="/contact"
-              className="rounded-full bg-white px-6 py-3 text-sm font-semibold text-black/90"
-            >
+            <Link href="/contact" className="rounded-full px-6 py-3 text-sm font-semibold transition hover:opacity-90" style={{ background: ACCENT, color: DARK }}>
               Contact Us →
             </Link>
-            <Link
-              href="/news"
-              className="rounded-full border border-white/40 px-6 py-3 text-sm font-semibold text-white"
-            >
+
+            <Link href="/news" className="rounded-full border border-white/40 px-6 py-3 text-sm font-semibold text-white hover:bg-white/10">
               Back to News
             </Link>
           </div>
@@ -205,9 +187,12 @@ function ContentBlock({
 }) {
   return (
     <section>
-      <h2 className="text-2xl font-semibold text-black/90 md:text-3xl">
+      <h2 className="text-2xl font-semibold md:text-3xl" style={{ color: PRIMARY }}>
         {title}
       </h2>
+
+      <div className="mt-3 h-[2px] w-14" style={{ background: ACCENT }} />
+
       <div className="mt-5 space-y-4 text-base leading-relaxed text-black/70">
         {children}
       </div>
