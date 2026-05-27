@@ -21,22 +21,29 @@ export default function FuzionNav() {
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 10);
+
     onScroll();
+
     window.addEventListener("scroll", onScroll);
+
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
   useEffect(() => {
     const onResize = () => {
-      if (window.innerWidth >= 1024) setMobileOpen(false);
+      if (window.innerWidth >= 1024) {
+        setMobileOpen(false);
+      }
     };
 
     window.addEventListener("resize", onResize);
+
     return () => window.removeEventListener("resize", onResize);
   }, []);
 
   useEffect(() => {
     document.body.style.overflow = mobileOpen ? "hidden" : "";
+
     return () => {
       document.body.style.overflow = "";
     };
@@ -54,9 +61,9 @@ export default function FuzionNav() {
         <div className="flex h-[76px] items-center justify-between lg:h-[84px]">
           <Link href="/" aria-label="Home" className="inline-flex shrink-0">
             <img
-              src={BRAND.logo}
+              src="/logos/fuzion-chickasaw-logo-transparent.png"
               alt={BRAND.name}
-              className="h-[72px] w-auto sm:h-[82px] lg:h-[100px]"
+              className="h-[58px] w-auto sm:h-[66px] lg:h-[125px]"
             />
           </Link>
 

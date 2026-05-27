@@ -35,7 +35,7 @@ export default function AboutPage() {
         {
           name: "Dan Goretskie",
           title: "Founder & CEO",
-          img: "https://imeyhjgubpbglspfellj.supabase.co/storage/v1/object/public/media/Company%20Headshots/Dan%20Goretskie%20-%20Fuzion%20Website%20Image.jpg",
+          img: "https://imeyhjgubpbglspfellj.supabase.co/storage/v1/object/public/media/Company%20Headshots/Dan%20FCG_Tan.jpeg",
           href: "/company/dan-goretskie-consulting",
           photoPosition: "40% -5%",
           photoScale: 1.1,
@@ -43,7 +43,7 @@ export default function AboutPage() {
         {
           name: "Donna Webb",
           title: "Co-Founder & COO",
-          img: "https://imeyhjgubpbglspfellj.supabase.co/storage/v1/object/public/media/Company%20Headshots/Donna%20Webb%20-%20Fuzion%20Image%20-%20Consulting.png",
+          img: "https://imeyhjgubpbglspfellj.supabase.co/storage/v1/object/public/media/Company%20Headshots/Donna_FCG%20Tan.jpeg",
           href: "/company/donna-webb-consulting",
           photoPosition: "50% 20%",
           photoScale: 1,
